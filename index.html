@@ -1,0 +1,2643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Free Nat 5 Business Management Revision — Scotland</title>
+<meta name="description" content="Free Nat 5 Business Management revision for Scotland. SQA-verified questions, flashcards, worksheets, mock exam and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --card: #1c2330;
+  --border: #30363d;
+  --accent: #3fb950;
+  --accent-glow: rgba(63,185,80,0.15);
+  --accent2: #f85149;
+  --accent3: #d29922;
+  --accent4: #58a6ff;
+  --accent5: #bc8cff;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --radius: 12px;
+  --nav-h: 56px;
+  font-size: 15px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+button{font-family:'Nunito',sans-serif;cursor:pointer}
+
+/* ── TOP BAR ── */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(13,17,23,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;
+  padding:0 16px;height:54px;
+}
+.topbar-logo{
+  font-size:1.1rem;font-weight:900;color:var(--text);
+  display:flex;align-items:center;gap:6px;flex:1;
+}
+.topbar-logo span{color:var(--accent)}
+.xp-pill{
+  display:flex;align-items:center;gap:6px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:100px;padding:5px 10px;font-size:0.75rem;
+  font-weight:700;font-family:'DM Mono',monospace;
+}
+.xp-pill .xp-val{color:var(--accent3)}
+.streak-pill{
+  display:flex;align-items:center;gap:4px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:100px;padding:5px 10px;font-size:0.75rem;
+  font-weight:700;
+}
+.streak-pill .fire{font-size:1rem}
+.lv-badge{
+  background:var(--accent5);color:#fff;border-radius:100px;
+  padding:3px 9px;font-size:0.7rem;font-weight:800;
+}
+
+/* ── NAV TABS ── */
+.nav-scroll{
+  display:flex;overflow-x:auto;gap:4px;
+  padding:8px 12px;background:var(--surface);
+  border-bottom:1px solid var(--border);
+  scrollbar-width:none;
+}
+.nav-scroll::-webkit-scrollbar{display:none}
+.nav-btn{
+  flex-shrink:0;display:flex;align-items:center;gap:5px;
+  background:transparent;border:1.5px solid transparent;
+  border-radius:100px;padding:6px 13px;
+  font-size:0.78rem;font-weight:700;color:var(--muted);
+  white-space:nowrap;transition:all 0.15s;
+}
+.nav-btn:hover{color:var(--text);border-color:var(--border)}
+.nav-btn.active{
+  background:var(--accent-glow);border-color:var(--accent);
+  color:var(--accent);
+}
+.nav-btn .nb-icon{font-size:1rem}
+
+/* ── PAGES ── */
+.page{display:none;padding:16px;max-width:700px;margin:0 auto;padding-bottom:80px}
+.page.active{display:block;animation:fadeIn 0.2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── HERO (Practice page) ── */
+.hero{
+  background:linear-gradient(135deg,#1a2030 0%,#1c2838 100%);
+  border:1px solid var(--border);border-radius:16px;
+  padding:20px;margin-bottom:16px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'💼';position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  font-size:4rem;opacity:0.12;
+}
+.hero h1{font-size:1.4rem;font-weight:900;line-height:1.2;margin-bottom:4px}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:0.82rem;color:var(--muted)}
+
+/* ── DAILY GOAL BAR ── */
+.goal-bar{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:12px 16px;margin-bottom:16px;
+  display:flex;align-items:center;gap:12px;
+}
+.goal-bar-track{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.goal-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),#7ee787);border-radius:4px;transition:width 0.5s}
+.goal-label{font-size:0.75rem;color:var(--muted);font-family:'DM Mono',monospace;white-space:nowrap}
+.goal-val{font-weight:800;color:var(--accent)}
+
+/* ── SELECTORS ── */
+.selector-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.selector{
+  flex:1;min-width:120px;background:var(--card);
+  border:1.5px solid var(--border);border-radius:10px;
+  padding:8px 10px;color:var(--text);font-family:'Nunito',sans-serif;
+  font-size:0.82rem;font-weight:600;outline:none;
+  appearance:none;cursor:pointer;
+}
+.selector:focus{border-color:var(--accent4)}
+.selector option{background:var(--card)}
+
+/* ── QUESTION CARD ── */
+.q-card{
+  background:var(--card);border:1.5px solid var(--border);
+  border-radius:16px;padding:20px;margin-bottom:14px;
+  animation:fadeIn 0.25s ease;
+}
+.q-card-header{
+  display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap;
+}
+.q-tag{
+  background:rgba(88,166,255,0.12);border:1px solid rgba(88,166,255,0.25);
+  color:var(--accent4);border-radius:100px;padding:2px 10px;
+  font-size:0.68rem;font-family:'DM Mono',monospace;letter-spacing:1px;
+}
+.q-tag.hard{background:rgba(248,81,73,0.12);border-color:rgba(248,81,73,0.25);color:var(--accent2)}
+.q-tag.easy{background:rgba(63,185,80,0.12);border-color:rgba(63,185,80,0.25);color:var(--accent)}
+.q-num{font-size:0.72rem;color:var(--muted);font-family:'DM Mono',monospace;margin-left:auto}
+.q-text{font-size:1rem;font-weight:700;line-height:1.45;margin-bottom:16px}
+
+/* MCQ options */
+.opts{display:grid;gap:9px}
+.opt-btn{
+  display:flex;align-items:center;gap:10px;
+  background:var(--surface);border:1.5px solid var(--border);
+  border-radius:10px;padding:11px 14px;
+  text-align:left;color:var(--text);font-size:0.88rem;font-weight:600;
+  transition:all 0.15s;
+}
+.opt-btn:hover:not(:disabled){border-color:var(--accent4);background:rgba(88,166,255,0.06)}
+.opt-letter{
+  font-family:'DM Mono',monospace;font-size:0.72rem;
+  background:var(--border);border-radius:6px;
+  width:24px;height:24px;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:all 0.15s;font-weight:500;
+}
+.opt-btn:hover:not(:disabled) .opt-letter{background:var(--accent4);color:#0d1117}
+.opt-btn.correct{border-color:var(--accent);background:rgba(63,185,80,0.1)}
+.opt-btn.correct .opt-letter{background:var(--accent);color:#0d1117}
+.opt-btn.wrong{border-color:var(--accent2);background:rgba(248,81,73,0.1)}
+.opt-btn.wrong .opt-letter{background:var(--accent2);color:#fff}
+.opt-btn:disabled{cursor:default}
+
+/* fill-in */
+.fill-input{
+  width:100%;background:var(--surface);border:1.5px solid var(--border);
+  border-radius:10px;padding:11px 14px;color:var(--text);font-size:0.95rem;
+  font-family:'Nunito',sans-serif;outline:none;margin-bottom:10px;transition:border-color 0.2s;
+}
+.fill-input:focus{border-color:var(--accent4)}
+.fill-input.correct{border-color:var(--accent)}
+.fill-input.wrong{border-color:var(--accent2)}
+
+/* action buttons */
+.btn-row{display:flex;gap:8px;margin-top:4px;flex-wrap:wrap}
+.btn{
+  flex:1;min-width:90px;padding:11px 16px;border-radius:10px;
+  font-size:0.85rem;font-weight:800;border:none;transition:all 0.15s;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-green{background:var(--accent);color:#0d1117}
+.btn-blue{background:transparent;border:1.5px solid var(--accent4);color:var(--accent4)}
+.btn-ghost{background:transparent;border:1.5px solid var(--border);color:var(--muted)}
+.btn-ghost:hover{color:var(--text);border-color:var(--muted)}
+.btn-red{background:transparent;border:1.5px solid var(--accent2);color:var(--accent2)}
+
+/* explanation */
+.explanation{
+  margin-top:12px;background:rgba(63,185,80,0.06);
+  border:1px solid rgba(63,185,80,0.2);border-radius:10px;
+  padding:12px 14px;font-size:0.82rem;line-height:1.6;
+  display:none;animation:fadeIn 0.2s ease;
+}
+.explanation.show{display:block}
+.explanation .expl-label{color:var(--accent);font-weight:800;margin-bottom:4px}
+
+/* ── XP TOAST ── */
+.xp-toast{
+  position:fixed;top:70px;right:16px;z-index:999;
+  background:var(--accent);color:#0d1117;
+  border-radius:100px;padding:8px 16px;
+  font-weight:800;font-size:0.85rem;
+  opacity:0;transform:translateY(-10px);transition:all 0.3s;pointer-events:none;
+}
+.xp-toast.show{opacity:1;transform:translateY(0)}
+
+/* ── SECTION LABELS ── */
+.section-label{
+  font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px;font-family:'DM Mono',monospace;
+}
+.section-title{
+  font-size:1.1rem;font-weight:900;margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+
+/* ── TOPIC CARDS ── */
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:20px}
+.topic-card{
+  background:var(--card);border:1.5px solid var(--border);border-radius:14px;
+  padding:16px 14px;cursor:pointer;transition:all 0.18s;position:relative;overflow:hidden;
+}
+.topic-card.sel{border-color:var(--accent);background:rgba(63,185,80,0.08)}
+.topic-card:hover{transform:translateY(-2px);border-color:var(--accent4)}
+.topic-icon{font-size:1.6rem;margin-bottom:8px}
+.topic-name{font-size:0.82rem;font-weight:800;line-height:1.2}
+.topic-count{font-size:0.7rem;color:var(--muted);margin-top:4px;font-family:'DM Mono',monospace}
+.topic-sub-text{font-size:0.65rem;color:var(--muted);margin-top:6px;line-height:1.3;opacity:0.8}
+.topic-prog{height:3px;background:var(--border);border-radius:2px;margin-top:8px;overflow:hidden}
+.topic-prog-fill{height:100%;background:var(--accent);border-radius:2px;transition:width 0.5s}
+
+/* ── FLASHCARD ── */
+.fc-wrap{perspective:1200px;margin-bottom:16px;cursor:pointer}
+.fc-inner{
+  position:relative;min-height:200px;transform-style:preserve-3d;
+  transition:transform 0.5s cubic-bezier(.4,0,.2,1);
+}
+.fc-inner.flipped{transform:rotateY(180deg)}
+.fc-face{
+  position:absolute;width:100%;min-height:200px;
+  backface-visibility:hidden;background:var(--card);
+  border:1.5px solid var(--border);border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  padding:28px 24px;text-align:center;
+}
+.fc-back{transform:rotateY(180deg)}
+.fc-label{font-size:0.68rem;color:var(--accent);font-family:'DM Mono',monospace;letter-spacing:2px;margin-bottom:12px}
+.fc-text{font-size:1.05rem;font-weight:700;line-height:1.45}
+.fc-body{width:100%}
+.fc-hint{font-size:0.78rem;color:var(--muted);text-align:center;margin-bottom:12px}
+.fc-nav{display:flex;gap:10px}
+.fc-nav-btn{
+  flex:1;padding:11px;border-radius:10px;font-weight:800;font-size:0.85rem;
+  background:transparent;transition:all 0.15s;
+}
+.fc-nav-btn.knew{border:1.5px solid var(--accent);color:var(--accent)}
+.fc-nav-btn.knew:hover{background:rgba(63,185,80,0.1)}
+.fc-nav-btn.skip{border:1.5px solid var(--accent2);color:var(--accent2)}
+.fc-nav-btn.skip:hover{background:rgba(248,81,73,0.1)}
+.fc-progress{
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;
+  font-size:0.75rem;color:var(--muted);font-family:'DM Mono',monospace;
+}
+.fc-progress-track{flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.fc-progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent4));border-radius:2px;transition:width 0.4s}
+
+/* ── PROGRESS BARS (quiz) ── */
+.q-progress{height:4px;background:var(--border);border-radius:2px;margin-bottom:20px;overflow:hidden}
+.q-progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent4));border-radius:2px;transition:width 0.4s}
+
+/* ── RESULTS ── */
+.results-hero{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:28px;text-align:center;margin-bottom:16px;animation:fadeIn 0.4s ease;
+}
+.score-ring{width:130px;height:130px;margin:0 auto 16px;position:relative}
+.score-ring svg{transform:rotate(-90deg)}
+.score-ring-text{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+}
+.score-big{font-size:2.2rem;font-weight:900;line-height:1}
+.score-lbl{font-size:0.68rem;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:1px}
+.grade-pill{
+  display:inline-block;font-weight:900;font-size:1.1rem;
+  padding:6px 20px;border-radius:100px;margin-bottom:10px;
+}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.res-item{background:var(--surface);border-radius:10px;padding:12px;text-align:center;font-family:'DM Mono',monospace}
+.res-val{font-size:1.3rem;font-weight:700}
+.res-key{font-size:0.65rem;color:var(--muted);margin-top:2px;letter-spacing:1px}
+
+/* ── MOCK EXAM ── */
+.exam-hero{
+  background:linear-gradient(135deg,#1a2840,#1e1a2e);
+  border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px;
+}
+.exam-hero h2{font-size:1.1rem;font-weight:900;margin-bottom:6px}
+.exam-hero p{font-size:0.8rem;color:var(--muted);line-height:1.5}
+.exam-cards{display:grid;gap:12px;margin-bottom:16px}
+.exam-card{
+  background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:18px;
+  display:flex;align-items:center;gap:14px;cursor:pointer;transition:all 0.18s;
+}
+.exam-card:hover{border-color:var(--accent4);transform:translateY(-1px)}
+.exam-card .ec-icon{font-size:2rem}
+.exam-card .ec-title{font-weight:900;font-size:0.95rem}
+.exam-card .ec-desc{font-size:0.78rem;color:var(--muted);margin-top:2px}
+.exam-timer-bar{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:10px 16px;margin-bottom:14px;
+  display:flex;align-items:center;gap:12px;
+}
+.exam-timer-val{font-family:'DM Mono',monospace;font-size:1.1rem;font-weight:700;color:var(--accent3)}
+.exam-marks{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--muted);margin-left:auto}
+
+/* ── FORMULA SHEET ── */
+.formula-section{margin-bottom:20px}
+.formula-section h3{
+  font-size:0.9rem;font-weight:800;color:var(--accent4);
+  margin-bottom:10px;padding-bottom:6px;
+  border-bottom:1px solid var(--border);
+}
+.formula-cards{display:grid;gap:8px}
+.formula-card{
+  background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;
+}
+.formula-name{font-size:0.75rem;color:var(--muted);margin-bottom:4px;font-weight:700}
+.formula-val{font-family:'DM Mono',monospace;font-size:0.88rem;color:var(--text);line-height:1.6}
+
+/* ── LINKS PAGE ── */
+.links-grid{display:grid;gap:10px}
+.link-card{
+  background:var(--card);border:1.5px solid var(--border);border-radius:14px;
+  padding:14px 16px;text-decoration:none;color:var(--text);
+  display:flex;align-items:center;gap:12px;transition:all 0.15s;
+}
+.link-card:hover{border-color:var(--accent4);transform:translateX(4px)}
+.link-icon{font-size:1.6rem;flex-shrink:0}
+.link-title{font-weight:800;font-size:0.9rem}
+.link-desc{font-size:0.75rem;color:var(--muted);margin-top:2px}
+
+/* ── SETTINGS PAGE ── */
+.settings-card{
+  background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px;margin-bottom:12px;
+}
+.settings-card h3{font-size:0.85rem;font-weight:800;color:var(--accent4);margin-bottom:12px}
+.setting-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.setting-label{font-size:0.85rem;flex:1}
+.setting-input{
+  background:var(--surface);border:1.5px solid var(--border);border-radius:8px;
+  padding:6px 10px;color:var(--text);font-family:'Nunito',sans-serif;
+  font-size:0.85rem;outline:none;width:100px;
+}
+.setting-input:focus{border-color:var(--accent4)}
+
+/* ── PROGRESS PAGE ── */
+.prog-stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+.prog-stat{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:14px;text-align:center;
+}
+.prog-stat-val{font-size:1.6rem;font-weight:900;color:var(--accent)}
+.prog-stat-key{font-size:0.72rem;color:var(--muted);margin-top:2px;font-family:'DM Mono',monospace}
+.prog-topic-row{
+  display:flex;align-items:center;gap:10px;
+  background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:12px 14px;margin-bottom:8px;
+}
+.prog-topic-name{font-size:0.85rem;font-weight:700;flex:1}
+.prog-topic-bar-wrap{flex:2}
+.prog-topic-bar{height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.prog-topic-fill{height:100%;background:var(--accent);border-radius:4px;transition:width 0.5s}
+.prog-topic-pct{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted);width:36px;text-align:right}
+
+/* ── WORKSHEET styles (inline) ── */
+.ws-section-head{
+  font-size:0.88rem;font-weight:900;color:var(--accent);
+  margin:18px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border);
+}
+.ws-q{
+  background:var(--card);border:1.5px solid var(--border);border-radius:14px;
+  padding:16px;margin-bottom:12px;transition:border-color 0.2s;
+}
+.ws-q.ok{border-color:var(--accent)}
+.ws-q.bad{border-color:var(--accent2)}
+.ws-qlabel{font-size:0.65rem;font-family:'DM Mono',monospace;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.ws-qtext{font-weight:700;font-size:0.93rem;line-height:1.4;margin-bottom:11px}
+.ws-opts2{display:grid;gap:7px}
+.ws-opt2{
+  display:flex;align-items:center;gap:9px;
+  background:var(--surface);border:1.5px solid var(--border);border-radius:9px;
+  padding:9px 13px;cursor:pointer;font-size:0.83rem;font-weight:600;
+  transition:all 0.14s;color:var(--text);
+}
+.ws-opt2:hover:not(:disabled){border-color:var(--accent4)}
+.ws-opt2 .wol{
+  font-family:'DM Mono',monospace;font-size:0.68rem;background:var(--border);
+  border-radius:5px;width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.ws-opt2.wc{border-color:var(--accent);background:rgba(63,185,80,0.1)}
+.ws-opt2.wc .wol{background:var(--accent);color:#0d1117}
+.ws-opt2.ww{border-color:var(--accent2);background:rgba(248,81,73,0.1)}
+.ws-opt2.ww .wol{background:var(--accent2);color:#fff}
+.ws-opt2:disabled{cursor:default}
+.ws-eq{
+  background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:12px 14px;font-family:'DM Mono',monospace;font-size:0.82rem;
+  line-height:2.4;margin-bottom:10px;
+}
+.eq-in{
+  background:transparent;border:none;border-bottom:2px solid var(--accent4);
+  color:var(--text);font-family:'DM Mono',monospace;font-size:0.82rem;
+  min-width:90px;text-align:center;outline:none;padding:0 4px;
+}
+.eq-in.ec{border-color:var(--accent);color:var(--accent)}
+.eq-in.ew{border-color:var(--accent2);color:var(--accent2)}
+.ws-ta{
+  width:100%;background:var(--surface);border:1.5px solid var(--border);
+  border-radius:9px;padding:10px 13px;color:var(--text);font-size:0.85rem;
+  font-family:'Nunito',sans-serif;outline:none;resize:vertical;min-height:70px;
+  margin-bottom:10px;transition:border-color 0.2s;
+}
+.ws-ta:focus{border-color:var(--accent4)}
+.ws-ta.ec{border-color:var(--accent)}
+.ws-ta.ew{border-color:var(--accent2)}
+.ws-check{
+  background:transparent;border:1.5px solid var(--accent4);color:var(--accent4);
+  border-radius:8px;padding:7px 15px;font-family:'Nunito',sans-serif;
+  font-weight:800;font-size:0.78rem;cursor:pointer;transition:all 0.14s;
+}
+.ws-check:hover{background:rgba(88,166,255,0.1)}
+.ws-check:disabled{opacity:0.4;cursor:default}
+.ws-reveal{
+  margin-top:10px;background:rgba(63,185,80,0.06);border:1px solid rgba(63,185,80,0.2);
+  border-radius:8px;padding:10px 13px;font-size:0.8rem;line-height:1.55;display:none;
+}
+.ws-reveal.show{display:block}
+.ws-reveal strong{color:var(--accent)}
+.pun-tbl{border-collapse:collapse}
+.pun-tbl td,.pun-tbl th{border:1.5px solid var(--border);width:68px;height:48px;text-align:center;vertical-align:middle}
+.pun-tbl th{background:rgba(63,185,80,0.1);color:var(--accent);font-family:'DM Mono',monospace;font-size:0.8rem;font-weight:600}
+.pun-in{background:transparent;border:none;outline:none;text-align:center;font-family:'DM Mono',monospace;font-size:0.85rem;color:var(--text);width:60px;cursor:pointer}
+.pun-cell{background:var(--surface)}
+.pun-cell.pc{background:rgba(63,185,80,0.15);color:var(--accent)}
+.pun-cell.pw{background:rgba(248,81,73,0.12);color:var(--accent2)}
+.ws-score-strip{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:12px;
+}
+.ws-score-num{font-size:1.5rem;font-weight:900;color:var(--accent);font-family:'DM Mono',monospace}
+.ws-score-detail{flex:1}
+.ws-score-msg{font-size:0.78rem;color:var(--muted)}
+.ws-score-track{height:4px;background:var(--border);border-radius:2px;margin-top:6px;overflow:hidden}
+.ws-score-fill{height:100%;background:var(--accent);border-radius:2px;transition:width 0.5s}
+.ws-tab-row{display:flex;gap:6px;margin-bottom:16px;overflow-x:auto;scrollbar-width:none}
+.ws-tab-row::-webkit-scrollbar{display:none}
+.ws-tab{
+  flex-shrink:0;background:var(--card);border:1.5px solid var(--border);border-radius:100px;
+  padding:7px 14px;cursor:pointer;font-weight:800;font-size:0.78rem;color:var(--muted);transition:all 0.15s;
+}
+.ws-tab:hover{color:var(--text)}
+.ws-tab.wta{border-color:var(--accent);color:var(--accent);background:rgba(63,185,80,0.08)}
+.ws-sheet2{display:none}
+.ws-sheet2.wsa{display:block;animation:fadeIn 0.25s ease}
+.ws-action-row{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+
+/* ── EXAM TIPS ── */
+.tip-card{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:13px 15px;margin-bottom:8px;display:flex;align-items:flex-start;gap:10px;
+}
+.tip-icon{font-size:1.2rem;flex-shrink:0;margin-top:1px}
+.tip-text{font-size:0.82rem;line-height:1.5}
+.tip-text strong{color:var(--accent)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:480px){
+  .res-grid{grid-template-columns:1fr 1fr}
+  .prog-stat-grid{grid-template-columns:1fr 1fr}
+  .topic-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- XP Toast -->
+<div class="xp-toast" id="xp-toast">+10 XP ⭐</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-logo">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Nat 5 <span>Business</span></div>
+  <div class="xp-pill">⭐ <span class="xp-val" id="xp-val">0</span> XP</div>
+  <div class="streak-pill"><span class="fire">🔥</span><span id="streak-val">0</span></div>
+  <div class="lv-badge" id="lv-badge">Lv 1</div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-scroll">
+  <button class="nav-btn active" onclick="nav('practice')" data-page="practice"><span class="nb-icon">📚</span> Practice</button>
+  <button class="nav-btn" onclick="nav('flashcards')" data-page="flashcards"><span class="nb-icon">🃏</span> Flashcards</button>
+  <button class="nav-btn" onclick="nav('worksheet')" data-page="worksheet"><span class="nb-icon">📝</span> Worksheets</button>
+  <button class="nav-btn" onclick="nav('mock')" data-page="mock"><span class="nb-icon">📋</span> Mock Exam</button>
+  <button class="nav-btn" onclick="nav('topics')" data-page="topics"><span class="nb-icon">🗂</span> Topics</button>
+  <button class="nav-btn" onclick="nav('formulas')" data-page="formulas"><span class="nb-icon">🔬</span> Key Facts</button>
+  <button class="nav-btn" onclick="nav('progress')" data-page="progress"><span class="nb-icon">📊</span> Progress</button>
+  <button class="nav-btn" onclick="nav('links')" data-page="links"><span class="nb-icon">🔗</span> Links</button>
+  <button class="nav-btn" onclick="nav('settings')" data-page="settings"><span class="nb-icon">⚙️</span> Settings</button>
+</div>
+
+<!-- ═══════════════ PRACTICE PAGE ═══════════════ -->
+<div class="page active" id="page-practice">
+  <div class="hero">
+    <h1>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Nat 5 <span>Business</span><br>Scotland</h1>
+    <p>SQA-verified · 120+ questions · 5 units · earn XP as you go!</p>
+  </div>
+
+  <div class="goal-bar" id="goal-bar">
+    <span style="font-size:1.1rem">🎯</span>
+    <div class="goal-bar-track"><div class="goal-bar-fill" id="goal-fill" style="width:0%"></div></div>
+    <div class="goal-label">Daily Goal <span class="goal-val" id="goal-txt">0/10</span></div>
+  </div>
+
+  <div class="section-label">Choose topic & mode</div>
+  <div class="selector-row">
+    <select class="selector" id="topic-sel">
+      <option value="all">🎲 Random Mix</option>
+      <option value="understanding">🏢 Understanding Business</option>
+      <option value="marketing">📣 Management of Marketing</option>
+      <option value="operations">⚙️ Management of Operations</option>
+      <option value="people">👥 Management of People</option>
+      <option value="finance">💰 Management of Finance</option>
+    </select>
+    <select class="selector" id="type-sel">
+      <option value="all">All Types</option>
+      <option value="mcq">Multiple Choice</option>
+      <option value="fillin">Fill in Blank</option>
+    </select>
+  </div>
+
+  <div id="q-progress-wrap">
+    <div class="q-progress"><div class="q-progress-fill" id="q-progress-fill" style="width:0%"></div></div>
+  </div>
+
+  <div id="question-area">
+    <div class="q-card">
+      <div style="text-align:center;color:var(--muted);padding:20px">
+        <div style="font-size:2rem;margin-bottom:10px">🔬</div>
+        Press New Question to start!
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-row" style="margin-top:0">
+    <button class="btn btn-green" onclick="newQuestion()">⟳ New Question</button>
+    <button class="btn btn-ghost" onclick="nav('mock')">📋 Mock Exam</button>
+  </div>
+</div>
+
+<!-- ═══════════════ FLASHCARDS PAGE ═══════════════ -->
+<div class="page" id="page-flashcards">
+  <div class="section-title">🃏 Flashcards</div>
+
+  <div class="selector-row" style="margin-bottom:12px">
+    <select class="selector" id="fc-topic-sel">
+      <option value="all">All Topics</option>
+      <option value="understanding">🏢 Understanding Business</option>
+      <option value="marketing">📣 Management of Marketing</option>
+      <option value="operations">⚙️ Management of Operations</option>
+      <option value="people">👥 Management of People</option>
+      <option value="finance">💰 Management of Finance</option>
+    </select>
+    <button class="btn btn-blue" onclick="startFlashcards()" style="flex:0;padding:8px 16px;border-radius:10px;font-size:0.82rem">▶ Start</button>
+  </div>
+
+  <div class="fc-progress">
+    <span id="fc-prog-txt">0 / 0</span>
+    <div class="fc-progress-track"><div class="fc-progress-fill" id="fc-prog-fill" style="width:0%"></div></div>
+    <span style="color:var(--accent)">✓ <span id="fc-knew-txt">0</span></span>
+  </div>
+
+  <div class="fc-hint" id="fc-hint">👆 Tap the card to flip it</div>
+
+  <div class="fc-wrap" onclick="flipCard()" id="fc-wrap">
+    <div class="fc-inner" id="fc-inner">
+      <div class="fc-face fc-front">
+        <div class="fc-body">
+          <div class="fc-label">QUESTION</div>
+          <div class="fc-text" id="fc-front-text">Select a topic and press Start to begin</div>
+        </div>
+      </div>
+      <div class="fc-face fc-back">
+        <div class="fc-body">
+          <div class="fc-label" style="color:var(--accent4)">ANSWER</div>
+          <div class="fc-text" id="fc-back-text" style="font-size:0.92rem;font-weight:600;color:var(--text)">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fc-nav">
+    <button class="fc-nav-btn skip" onclick="fcNext(false)">✕ Didn't know</button>
+    <button class="fc-nav-btn knew" onclick="fcNext(true)">✓ Got it!</button>
+  </div>
+</div>
+
+<!-- ═══════════════ WORKSHEET PAGE ═══════════════ -->
+<div class="page" id="page-worksheet">
+  <div class="section-title">📝 Interactive Worksheets</div>
+  <p style="font-size:0.8rem;color:var(--muted);margin-bottom:14px">SQA-style written questions · instant feedback · self-marked</p>
+
+  <div id="ws-score-strip" class="ws-score-strip" style="display:none">
+    <div class="ws-score-num" id="ws-score-num">0/0</div>
+    <div class="ws-score-detail">
+      <div class="ws-score-msg" id="ws-score-msg">Answer questions to see your score</div>
+      <div class="ws-score-track"><div class="ws-score-fill" id="ws-score-fill2" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <div class="ws-tab-row">
+    <button class="ws-tab wta" onclick="wsSwitchSheet(0)">🏢 Understanding Bus.</button>
+    <button class="ws-tab" onclick="wsSwitchSheet(1)">📣 Marketing</button>
+    <button class="ws-tab" onclick="wsSwitchSheet(2)">💰 Finance</button>
+  </div>
+
+
+  <!-- SHEET 0: Understanding Business -->
+  <div class="ws-sheet2 wsa" id="wss-0">
+    <div style="background:rgba(88,166,255,0.07);border:1px solid rgba(88,166,255,0.2);border-radius:10px;padding:11px 14px;margin-bottom:14px;font-size:0.78rem;color:var(--accent4);line-height:1.5">
+      <strong>📋 SQA Key Areas:</strong> Role of business in society · Types of organisations · Objectives · PESTEC · Stakeholders · Enterprise
+    </div>
+    <div class="ws-section-head">Section A — Business Organisations & Liability</div>
+
+    <div class="ws-q" id="wq-ub1" data-done="0">
+      <div class="ws-qlabel">Q1 · Multiple Choice</div>
+      <div class="ws-qtext">Which type of business organisation has LIMITED LIABILITY and sells shares PRIVATELY (not on the stock exchange)?</div>
+      <div class="ws-opts2">
+        <div class="ws-opt2" onclick="wsMCQ('wq-ub1',this,false)"><span class="wol">A</span>Sole trader</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-ub1',this,false)"><span class="wol">B</span>Partnership</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-ub1',this,true)"><span class="wol">C</span>Private limited company (Ltd)</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-ub1',this,false)"><span class="wol">D</span>Social enterprise</div>
+      </div>
+      <div class="ws-reveal" id="wq-ub1-r"><strong>✓ C — Private limited company (Ltd).</strong> An Ltd has limited liability (shareholders only risk their investment) and shares are sold privately among known individuals. A PLC sells shares publicly on the stock exchange.</div>
+    </div>
+
+    <div class="ws-q" id="wq-ub2" data-done="0">
+      <div class="ws-qlabel">Q2 · Short Answer (2 marks)</div>
+      <div class="ws-qtext">Explain what is meant by "unlimited liability" and state which type of business organisation this applies to.</div>
+      <textarea class="ws-ta" id="wq-ub2-ta" placeholder="Definition of unlimited liability…&#10;Type of business it applies to…"></textarea>
+      <button class="ws-check" onclick="wsReveal('wq-ub2')">Show Model Answer</button>
+      <div class="ws-reveal" id="wq-ub2-r"><strong>✓ Model answer:</strong><br>
+      Unlimited liability means the owner is <strong>personally responsible for ALL business debts</strong>, including using personal assets (house, car, savings) to pay them if the business cannot. (1)<br>
+      It applies to <strong>sole traders and most partnerships</strong>. (1)</div>
+    </div>
+
+    <div class="ws-section-head">Section B — PESTEC External Factors</div>
+
+    <div class="ws-q" id="wq-ub3" data-done="0">
+      <div class="ws-qlabel">Q3 · Fill in the Blanks — PESTEC</div>
+      <div class="ws-qtext">Complete the PESTEC acronym for external factors:</div>
+      <div class="ws-eq">
+        P = <input class="eq-in" id="equb3a" placeholder="??????????"><br>
+        E = <input class="eq-in" id="equb3b" placeholder="???????????"><br>
+        S = <input class="eq-in" id="equb3c" placeholder="??????"><br>
+        T = <input class="eq-in" id="equb3d" placeholder="????????????"><br>
+        E = <input class="eq-in" id="equb3e" placeholder="?????????"><br>
+        C = <input class="eq-in" id="equb3f" placeholder="???????????">
+      </div>
+      <button class="ws-check" onclick="wsEq('wq-ub3',['equb3a','equb3b','equb3c','equb3d','equb3e','equb3f'],['political','environmental','social','technological','economic','competitive'])">Check ✓</button>
+      <div class="ws-reveal" id="wq-ub3-r"><strong>✓</strong> P=<strong>Political</strong> · E=<strong>Environmental</strong> · S=<strong>Social</strong> · T=<strong>Technological</strong> · E=<strong>Economic</strong> · C=<strong>Competitive</strong></div>
+    </div>
+
+    <div class="ws-q" id="wq-ub4" data-done="0">
+      <div class="ws-qlabel">Q4 · Multiple Choice</div>
+      <div class="ws-qtext">A new competitor enters the market selling similar products at lower prices. Which type of external factor is this?</div>
+      <div class="ws-opts2">
+        <div class="ws-opt2" onclick="wsMCQ('wq-ub4',this,false)"><span class="wol">A</span>Political factor</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-ub4',this,false)"><span class="wol">B</span>Economic factor</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-ub4',this,false)"><span class="wol">C</span>Social factor</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-ub4',this,true)"><span class="wol">D</span>Competitive factor</div>
+      </div>
+      <div class="ws-reveal" id="wq-ub4-r"><strong>✓ D — Competitive factor.</strong> Changes in competition (new entrants, rivals' pricing, new products from competitors) are competitive external factors. The business has no control over these but must respond to them.</div>
+    </div>
+
+    <div class="ws-q" id="wq-ub5" data-done="0">
+      <div class="ws-qlabel">Q5 · Short Answer (3 marks)</div>
+      <div class="ws-qtext">Identify THREE different stakeholders of a large supermarket and state ONE interest each has in the business.</div>
+      <textarea class="ws-ta" id="wq-ub5-ta" placeholder="Stakeholder 1: … Interest: …&#10;Stakeholder 2: … Interest: …&#10;Stakeholder 3: … Interest: …"></textarea>
+      <button class="ws-check" onclick="wsReveal('wq-ub5')">Show Model Answer</button>
+      <div class="ws-reveal" id="wq-ub5-r"><strong>✓ Model answer (1 mark each):</strong><br>
+      • <strong>Shareholders/owners</strong>: interested in profit and dividends (return on investment). (1)<br>
+      • <strong>Employees</strong>: interested in fair pay, job security, and good working conditions. (1)<br>
+      • <strong>Customers</strong>: interested in good quality products at fair prices and excellent service. (1)<br>
+      Other valid answers: suppliers (payment on time), local community (jobs, local impact), government (tax revenue, legal compliance), banks (loan repayments).</div>
+    </div>
+
+    <div class="ws-action-row">
+      <button class="btn btn-green" onclick="wsMarkAll(0)" style="flex:1">✓ Mark All</button>
+      <button class="btn btn-ghost" onclick="wsReset2(0)" style="flex:1">↺ Reset</button>
+    </div>
+  </div>
+
+  <!-- SHEET 1: Marketing -->
+  <div class="ws-sheet2" id="wss-1">
+    <div style="background:rgba(88,166,255,0.07);border:1px solid rgba(88,166,255,0.2);border-radius:10px;padding:11px 14px;margin-bottom:14px;font-size:0.78rem;color:var(--accent4);line-height:1.5">
+      <strong>📋 SQA Key Areas:</strong> Market research · Marketing mix (4 Ps) · Product life cycle · Pricing strategies · Promotion · Place/distribution
+    </div>
+    <div class="ws-section-head">Section A — Marketing Mix & Research</div>
+
+    <div class="ws-q" id="wq-mk1" data-done="0">
+      <div class="ws-qlabel">Q1 · Fill in the Blanks — 4 Ps</div>
+      <div class="ws-qtext">Complete the marketing mix:</div>
+      <div class="ws-eq">
+        The four elements of the marketing mix are:<br>
+        <input class="eq-in" id="eqmk1a" placeholder="???????"> · <input class="eq-in" id="eqmk1b" placeholder="?????"> · <input class="eq-in" id="eqmk1c" placeholder="?????"> · <input class="eq-in" id="eqmk1d" placeholder="?????????">
+      </div>
+      <button class="ws-check" onclick="wsEq('wq-mk1',['eqmk1a','eqmk1b','eqmk1c','eqmk1d'],['product','price','place','promotion'])">Check ✓</button>
+      <div class="ws-reveal" id="wq-mk1-r"><strong>✓</strong> The 4 Ps: <strong>Product</strong> · <strong>Price</strong> · <strong>Place</strong> · <strong>Promotion</strong>. All four must be coordinated to create an effective marketing strategy that satisfies customer needs.</div>
+    </div>
+
+    <div class="ws-q" id="wq-mk2" data-done="0">
+      <div class="ws-qlabel">Q2 · Multiple Choice</div>
+      <div class="ws-qtext">A new smartphone is launched at £999. Six months later the price drops to £799. Which pricing strategy is being used?</div>
+      <div class="ws-opts2">
+        <div class="ws-opt2" onclick="wsMCQ('wq-mk2',this,false)"><span class="wol">A</span>Penetration pricing</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-mk2',this,true)"><span class="wol">B</span>Price skimming</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-mk2',this,false)"><span class="wol">C</span>Competitive pricing</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-mk2',this,false)"><span class="wol">D</span>Cost-plus pricing</div>
+      </div>
+      <div class="ws-reveal" id="wq-mk2-r"><strong>✓ B — Price skimming.</strong> Skimming: high initial price to "skim" profits from customers willing to pay a premium (early adopters), then price drops to attract more customers. Common with new technology.</div>
+    </div>
+
+    <div class="ws-q" id="wq-mk3" data-done="0">
+      <div class="ws-qlabel">Q3 · Short Answer (4 marks)</div>
+      <div class="ws-qtext">Describe the FIVE stages of the Product Life Cycle and state what happens to sales at each stage.</div>
+      <textarea class="ws-ta" id="wq-mk3-ta" placeholder="Stage 1: R&D — …&#10;Stage 2: Introduction — …&#10;Stage 3: Growth — …&#10;Stage 4: Maturity — …&#10;Stage 5: Decline — …" style="min-height:110px"></textarea>
+      <button class="ws-check" onclick="wsReveal('wq-mk3')">Show Model Answer</button>
+      <div class="ws-reveal" id="wq-mk3-r"><strong>✓ Model answer:</strong><br>
+      1. <strong>R&D</strong>: product developed and tested — no sales yet, high costs. (1)<br>
+      2. <strong>Introduction</strong>: product launched — low sales, high promotion costs, may make a loss. (1)<br>
+      3. <strong>Growth</strong>: sales rise rapidly — profits begin, competitors may enter. (1)<br>
+      4. <strong>Maturity</strong>: sales peak — high competition, extension strategies used. (1)<br>
+      5. <strong>Decline</strong>: sales fall — product may be updated, replaced, or discontinued.</div>
+    </div>
+
+    <div class="ws-q" id="wq-mk4" data-done="0">
+      <div class="ws-qlabel">Q4 · Multiple Choice</div>
+      <div class="ws-qtext">Which type of market research collects NEW data directly from customers using questionnaires and interviews?</div>
+      <div class="ws-opts2">
+        <div class="ws-opt2" onclick="wsMCQ('wq-mk4',this,false)"><span class="wol">A</span>Desk (secondary) research</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-mk4',this,true)"><span class="wol">B</span>Field (primary) research</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-mk4',this,false)"><span class="wol">C</span>Analysis of competitor sales data</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-mk4',this,false)"><span class="wol">D</span>Reading government statistics</div>
+      </div>
+      <div class="ws-reveal" id="wq-mk4-r"><strong>✓ B — Field (primary) research.</strong> Field research collects brand new data: surveys, questionnaires, interviews, focus groups, observation. It's specific to your needs but more expensive and time-consuming than desk research.</div>
+    </div>
+
+    <div class="ws-action-row">
+      <button class="btn btn-green" onclick="wsMarkAll(1)" style="flex:1">✓ Mark All</button>
+      <button class="btn btn-ghost" onclick="wsReset2(1)" style="flex:1">↺ Reset</button>
+    </div>
+  </div>
+
+  <!-- SHEET 2: Finance -->
+  <div class="ws-sheet2" id="wss-2">
+    <div style="background:rgba(88,166,255,0.07);border:1px solid rgba(88,166,255,0.2);border-radius:10px;padding:11px 14px;margin-bottom:14px;font-size:0.78rem;color:var(--accent4);line-height:1.5">
+      <strong>📋 SQA Key Areas:</strong> Types of costs · Break-even · Cash budgeting · Income statement · Sources of finance
+    </div>
+    <div class="ws-section-head">Section A — Break-Even & Costs</div>
+
+    <div class="ws-q" id="wq-fi1" data-done="0">
+      <div class="ws-qlabel">Q1 · Multiple Choice</div>
+      <div class="ws-qtext">A business has fixed costs of £20,000. Each product sells for £50 and costs £30 to make. What is the break-even point?</div>
+      <div class="ws-opts2">
+        <div class="ws-opt2" onclick="wsMCQ('wq-fi1',this,false)"><span class="wol">A</span>400 units</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-fi1',this,false)"><span class="wol">B</span>667 units</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-fi1',this,true)"><span class="wol">C</span>1,000 units</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-fi1',this,false)"><span class="wol">D</span>2,000 units</div>
+      </div>
+      <div class="ws-reveal" id="wq-fi1-r"><strong>✓ C — 1,000 units.</strong><br>
+      Contribution per unit = Selling Price − Variable Cost = £50 − £30 = £20<br>
+      Break-even = Fixed Costs ÷ Contribution = £20,000 ÷ £20 = <strong>1,000 units</strong></div>
+    </div>
+
+    <div class="ws-q" id="wq-fi2" data-done="0">
+      <div class="ws-qlabel">Q2 · Fill in the Blanks — Income Statement</div>
+      <div class="ws-qtext">Complete the income statement structure:</div>
+      <div class="ws-eq">
+        <input class="eq-in" id="eqfi2a" placeholder="?????????????" style="min-width:130px"><br>
+        − Cost of Sales<br>
+        = <input class="eq-in" id="eqfi2b" placeholder="????????????"> Profit<br>
+        − <input class="eq-in" id="eqfi2c" placeholder="????????"> (overheads)<br>
+        = Net <input class="eq-in" id="eqfi2d" placeholder="??????"> (or Loss) for the year
+      </div>
+      <button class="ws-check" onclick="wsEq('wq-fi2',['eqfi2a','eqfi2b','eqfi2c','eqfi2d'],['sales revenue','gross','expenses','profit'])">Check ✓</button>
+      <div class="ws-reveal" id="wq-fi2-r"><strong>✓</strong> <strong>Sales Revenue</strong> − Cost of Sales = <strong>Gross Profit</strong> − <strong>Expenses</strong> = Net <strong>Profit</strong> (or Loss)</div>
+    </div>
+
+    <div class="ws-q" id="wq-fi3" data-done="0">
+      <div class="ws-qlabel">Q3 · Multiple Choice</div>
+      <div class="ws-qtext">Which of the following is an INTERNAL source of finance?</div>
+      <div class="ws-opts2">
+        <div class="ws-opt2" onclick="wsMCQ('wq-fi3',this,false)"><span class="wol">A</span>Bank loan</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-fi3',this,false)"><span class="wol">B</span>Share issue</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-fi3',this,true)"><span class="wol">C</span>Retained profit</div>
+        <div class="ws-opt2" onclick="wsMCQ('wq-fi3',this,false)"><span class="wol">D</span>Mortgage</div>
+      </div>
+      <div class="ws-reveal" id="wq-fi3-r"><strong>✓ C — Retained profit.</strong> Internal sources come from within the business: retained profit (kept rather than paid to owners), selling assets, owner's savings. No interest to pay — a key advantage over external sources.</div>
+    </div>
+
+    <div class="ws-q" id="wq-fi4" data-done="0">
+      <div class="ws-qlabel">Q4 · Short Answer (3 marks)</div>
+      <div class="ws-qtext">Explain the difference between FIXED costs and VARIABLE costs. Give ONE example of each.</div>
+      <textarea class="ws-ta" id="wq-fi4-ta" placeholder="Fixed costs definition + example…&#10;Variable costs definition + example…"></textarea>
+      <button class="ws-check" onclick="wsReveal('wq-fi4')">Show Model Answer</button>
+      <div class="ws-reveal" id="wq-fi4-r"><strong>✓ Model answer:</strong><br>
+      <strong>Fixed costs</strong> remain the same regardless of how much is produced. Example: rent, insurance, management salaries. (1+1)<br>
+      <strong>Variable costs</strong> change directly in proportion to the level of output — more production = higher variable costs. Example: raw materials, packaging, direct labour per item. (1+1)</div>
+    </div>
+
+    <div class="ws-action-row">
+      <button class="btn btn-green" onclick="wsMarkAll(2)" style="flex:1">✓ Mark All</button>
+      <button class="btn btn-ghost" onclick="wsReset2(2)" style="flex:1">↺ Reset</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ MOCK EXAM PAGE
+
+<!-- ═══════════════ MOCK EXAM PAGE ═══════════════ -->
+<div class="page" id="page-mock">
+  <div id="mock-home">
+    <div class="exam-hero">
+      <h2>📋 Mock Exam — Nat 5 Biology</h2>
+      <p>Based on the SQA curriculum. Two sittings just like the real exam.<br><strong>Paper 1:</strong> Short answers · 25 marks · 30 min &nbsp;|&nbsp; <strong>Paper 2:</strong> Extended · 25 marks · 40 min</p>
+    </div>
+    <div class="exam-cards">
+      <div class="exam-card" onclick="startMock('paper1')">
+        <div class="ec-icon">📄</div>
+        <div><div class="ec-title">Paper 1 — Mixed Questions</div><div class="ec-desc">25 questions · 30 minutes · all units</div></div>
+      </div>
+      <div class="exam-card" onclick="startMock('paper2')">
+        <div class="ec-icon">📝</div>
+        <div><div class="ec-title">Paper 2 — Mixed Questions</div><div class="ec-desc">25 questions · 40 minutes · all units</div></div>
+      </div>
+    </div>
+    <div class="section-title" style="margin-top:8px">📋 Exam Tips</div>
+    <div class="tip-card"><div class="tip-icon">✏️</div><div class="tip-text"><strong>Use precise business terminology</strong> — the SQA mark scheme awards marks for specific terms (e.g. "unlimited liability", "penetration pricing", "quality assurance", "contribution per unit").</div></div>
+    <div class="tip-card"><div class="tip-icon">🔢</div><div class="tip-text"><strong>Learn the break-even formula</strong> — Break-even = Fixed Costs ÷ (Selling Price − Variable Cost). Also know how to construct an income statement (Sales − Cost of Sales = Gross Profit − Expenses = Net Profit).</div></div>
+    <div class="tip-card"><div class="tip-icon">📊</div><div class="tip-text"><strong>Show your reasoning</strong> — "describe" questions need TWO points for 2 marks. "Explain" questions need a point AND a reason/effect. Watch for command words carefully.</div></div>
+    <div class="tip-card"><div class="tip-icon">💼</div><div class="tip-text"><strong>Case study questions</strong> — Section 1 is based on two real business case studies. Read the stimulus material carefully and use information from it to support your answers.</div></div>
+    <div class="tip-card"><div class="tip-icon">⏱</div><div class="tip-text"><strong>Manage your time</strong> — if stuck, move on and come back. Never leave a blank — an attempt may get a mark.</div></div>
+  </div>
+  <div id="mock-exam" style="display:none">
+    <div class="exam-timer-bar">
+      <span style="font-size:1rem">⏱</span>
+      <span class="exam-timer-val" id="mock-timer">30:00</span>
+      <span style="font-size:0.78rem;color:var(--muted)" id="mock-paper-label">Paper 1</span>
+      <span class="exam-marks">Score: <span id="mock-score-live">0</span> / <span id="mock-total-live">25</span></span>
+    </div>
+    <div class="q-progress"><div class="q-progress-fill" id="mock-progress-fill" style="width:0%"></div></div>
+    <div id="mock-q-area"></div>
+    <div class="btn-row">
+      <button class="btn btn-green" id="mock-submit-btn" onclick="mockSubmit()">Submit Answer ✓</button>
+      <button class="btn btn-ghost" onclick="mockSkip()">Skip →</button>
+      <button class="btn btn-red" onclick="mockEnd()">End Exam</button>
+    </div>
+  </div>
+  <div id="mock-results" style="display:none">
+    <div class="results-hero">
+      <div class="score-ring">
+        <svg width="130" height="130" viewBox="0 0 130 130">
+          <circle cx="65" cy="65" r="54" fill="none" stroke="#30363d" stroke-width="10"/>
+          <circle id="mock-ring" cx="65" cy="65" r="54" fill="none" stroke="#3fb950" stroke-width="10" stroke-linecap="round" stroke-dasharray="339" stroke-dashoffset="339"/>
+        </svg>
+        <div class="score-ring-text">
+          <div class="score-big" id="mock-pct">0%</div>
+          <div class="score-lbl">SCORE</div>
+        </div>
+      </div>
+      <div class="grade-pill" id="mock-grade"></div>
+      <div style="font-size:1rem;font-weight:800" id="mock-msg"></div>
+      <div style="font-size:0.8rem;color:var(--muted);margin-top:4px" id="mock-sub"></div>
+      <div class="res-grid">
+        <div class="res-item"><div class="res-val" id="mr-correct" style="color:var(--accent)">0</div><div class="res-key">CORRECT</div></div>
+        <div class="res-item"><div class="res-val" id="mr-wrong" style="color:var(--accent2)">0</div><div class="res-key">WRONG</div></div>
+        <div class="res-item"><div class="res-val" id="mr-time">—</div><div class="res-key">TIME</div></div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-green" onclick="restartMock()">Try Again</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('mock-home').style.display='block';document.getElementById('mock-results').style.display='none'">← Exams</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TOPICS PAGE ═══════════════ -->
+<div class="page" id="page-topics">
+  <div class="section-title">🗂 Topics</div>
+  <p style="font-size:0.8rem;color:var(--muted);margin-bottom:14px">Tap a topic to practise it directly</p>
+  <div class="topic-grid" id="topic-grid-page"></div>
+</div>
+
+<!-- ═══════════════ KEY FACTS PAGE ═══════════════ -->
+<div class="page" id="page-formulas">
+  <div class="section-title">🔬 Key Facts & Equations</div>
+  <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px">Essential knowledge for the SQA exam — learn these!</p>
+
+  <div class="formula-section">
+    <h3>🔬 Cell Biology</h3>
+    <div class="formula-cards">
+      <div class="formula-card"><div class="formula-name">Aerobic Respiration</div><div class="formula-val">Glucose + Oxygen → CO₂ + Water + ATP<br>Occurs in: cytoplasm (glycolysis) + mitochondria</div></div>
+      <div class="formula-card"><div class="formula-name">Anaerobic — Yeast</div><div class="formula-val">Glucose → Ethanol + CO₂ (+ 2 ATP)</div></div>
+      <div class="formula-card"><div class="formula-name">Anaerobic — Muscle</div><div class="formula-val">Glucose → Lactic acid (+ 2 ATP)</div></div>
+      <div class="formula-card"><div class="formula-name">DNA Base Pairing</div><div class="formula-val">A — T &nbsp;&nbsp;|&nbsp;&nbsp; G — C<br>Double helix held by complementary base pairs</div></div>
+      <div class="formula-card"><div class="formula-name">Osmosis</div><div class="formula-val">Water moves: HIGH water conc. → LOW water conc.<br>Through a selectively permeable membrane (passive)</div></div>
+      <div class="formula-card"><div class="formula-name">Protein Synthesis</div><div class="formula-val">DNA → mRNA (transcription, in nucleus)<br>mRNA → Protein (translation, at ribosome)</div></div>
+      <div class="formula-card"><div class="formula-name">Genetic Engineering (5 steps)</div><div class="formula-val">1. Identify gene → 2. Extract gene (restriction enzymes) → 3. Extract plasmid → 4. Insert gene into plasmid (ligase) → 5. Insert plasmid into host bacterium</div></div>
+    </div>
+  </div>
+
+  <div class="formula-section">
+    <h3>🦠 Multicellular Organisms</h3>
+    <div class="formula-cards">
+      <div class="formula-card"><div class="formula-name">Reflex Arc</div><div class="formula-val">Receptor → Sensory neuron → Relay neuron → Motor neuron → Effector</div></div>
+      <div class="formula-card"><div class="formula-name">Blood Glucose Regulation</div><div class="formula-val">High glucose → Pancreas releases Insulin → Liver converts glucose→glycogen<br>Low glucose → Pancreas releases Glucagon → Liver converts glycogen→glucose</div></div>
+      <div class="formula-card"><div class="formula-name">Brain Regions</div><div class="formula-val">Cerebrum: thought/memory &nbsp;|&nbsp; Cerebellum: balance/coordination<br>Medulla: heart rate/breathing (unconscious)</div></div>
+      <div class="formula-card"><div class="formula-name">Genetics Terms</div><div class="formula-val">Dominant (capital) = expressed with 1 copy<br>Recessive (lowercase) = needs 2 copies (homozygous)<br>Heterozygous = Aa &nbsp;|&nbsp; Homozygous = AA or aa</div></div>
+      <div class="formula-card"><div class="formula-name">Plant Transport</div><div class="formula-val">Xylem: water + minerals UPWARD (dead cells)<br>Phloem: sugars UP and DOWN (living cells)</div></div>
+      <div class="formula-card"><div class="formula-name">Transpiration Rate ↑ when…</div><div class="formula-val">↑ Wind speed &nbsp;|&nbsp; ↓ Humidity &nbsp;|&nbsp; ↑ Temperature &nbsp;|&nbsp; ↑ Light intensity</div></div>
+    </div>
+  </div>
+
+  <div class="formula-section">
+    <h3>🌍 Life on Earth</h3>
+    <div class="formula-cards">
+      <div class="formula-card"><div class="formula-name">Photosynthesis</div><div class="formula-val">CO₂ + H₂O → Glucose + O₂ (using light energy, in chloroplasts)<br>Limiting factors: light intensity, CO₂ concentration, temperature</div></div>
+      <div class="formula-card"><div class="formula-name">Energy Transfer in Food Chains</div><div class="formula-val">Only ~10% of energy transfers between trophic levels<br>~90% lost as heat (respiration, movement, waste)</div></div>
+      <div class="formula-card"><div class="formula-name">Nitrogen Cycle</div><div class="formula-val">Nitrogen-fixing bacteria: N₂ → nitrates (usable)<br>Decomposers: dead matter → ammonium<br>Denitrifying bacteria: nitrates → N₂ (back to atmosphere)</div></div>
+      <div class="formula-card"><div class="formula-name">Natural Selection</div><div class="formula-val">Variation → Selection pressure → Survival of fittest → Reproduction → Allele frequency changes over generations</div></div>
+      <div class="formula-card"><div class="formula-name">Ecological Relationships</div><div class="formula-val">Predation: predator benefits, prey harmed<br>Mutualism: both benefit (e.g. Rhizobium + legumes)<br>Parasitism: parasite benefits, host harmed<br>Competition: intraspecific (same sp.) / interspecific (diff. sp.)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ PROGRESS PAGE ═══════════════ -->
+<div class="page" id="page-progress">
+  <div class="section-title">📊 Your Progress</div>
+  <div class="prog-stat-grid">
+    <div class="prog-stat"><div class="prog-stat-val" id="ps-total">0</div><div class="prog-stat-key">ANSWERED</div></div>
+    <div class="prog-stat"><div class="prog-stat-val" id="ps-correct">0</div><div class="prog-stat-key">CORRECT</div></div>
+    <div class="prog-stat"><div class="prog-stat-val" id="ps-streak">0</div><div class="prog-stat-key">BEST STREAK</div></div>
+    <div class="prog-stat"><div class="prog-stat-val" id="ps-xp">0</div><div class="prog-stat-key">TOTAL XP</div></div>
+  </div>
+  <div class="section-label" style="margin-bottom:10px">Topic Accuracy</div>
+  <div id="topic-prog-rows"></div>
+  <button class="btn btn-red" onclick="resetAllProgress()" style="margin-top:16px;width:100%">🔄 Reset All Progress</button>
+</div>
+
+<!-- ═══════════════ LINKS PAGE ═══════════════ -->
+<div class="page" id="page-links">
+  <div class="section-title">🔗 Helpful Links</div>
+  <div class="links-grid">
+    <a class="link-card" href="https://www.sqa.org.uk/sqa/47436.html" target="_blank" rel="noopener">
+      <div class="link-icon">🏛</div>
+      <div><div class="link-title">SQA — Nat 5 Business Management</div><div class="link-desc">Official past papers, marking schemes & course spec</div></div>
+    </a>
+    <a class="link-card" href="https://www.bbc.co.uk/bitesize/subjects/zpsvr82" target="_blank" rel="noopener">
+      <div class="link-icon">📺</div>
+      <div><div class="link-title">BBC Bitesize — Nat 5 Business</div><div class="link-desc">Videos, notes and revision for every topic</div></div>
+    </a>
+    <a class="link-card" href="https://scholar.hw.ac.uk" target="_blank" rel="noopener">
+      <div class="link-icon">🎓</div>
+      <div><div class="link-title">SCHOLAR (Heriot-Watt)</div><div class="link-desc">Detailed online course for Scottish Nat 5 Business</div></div>
+    </a>
+    <a class="link-card" href="https://www.understandingstandards.org.uk/Subjects/BusinessManagement" target="_blank" rel="noopener">
+      <div class="link-icon">📖</div>
+      <div><div class="link-title">Understanding Standards</div><div class="link-desc">SQA exemplar answers and marking guidance</div></div>
+    </a>
+    <a class="link-card" href="https://businessmgmt.co.uk" target="_blank" rel="noopener">
+      <div class="link-icon">💼</div>
+      <div><div class="link-title">Business Management Resources</div><div class="link-desc">Notes, revision sheets and practice questions</div></div>
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════ SETTINGS PAGE ═══════════════ -->
+<div class="page" id="page-settings">
+  <div class="section-title">⚙️ Settings</div>
+  <div class="settings-card">
+    <h3>Your Profile</h3>
+    <div class="setting-row">
+      <span class="setting-label">Your name</span>
+      <input class="setting-input" id="set-name" placeholder="e.g. Eilidh" style="flex:1">
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">Daily question goal</span>
+      <select class="setting-input" id="set-goal">
+        <option value="5">5 questions</option>
+        <option value="10" selected>10 questions</option>
+        <option value="20">20 questions</option>
+        <option value="30">30 questions</option>
+      </select>
+    </div>
+    <button class="btn btn-green" onclick="saveSettings()" style="margin-top:10px;border:none">💾 Save</button>
+  </div>
+  <div class="settings-card">
+    <h3>ℹ️ About</h3>
+    <p style="font-size:0.82rem;line-height:1.6;color:var(--muted)">
+      Covers all five SQA Nat 5 Business Management areas: Understanding Business, Management of Marketing, Operations, People, and Finance.<br><br>
+      ✅ Verified against SQA Course Spec <strong>C810 75</strong> (valid from 2024–25, confirmed current 2025–26).<br><br>
+      120+ practice questions · Interactive worksheets · Mock exam · Key facts reference · XP levelling system.<br><br>
+      Progress saves automatically in your browser.
+    </p>
+  </div>
+</div>
+
+<script>
+// ✅ SQA Nat 5 Business Management Course Spec C810 75 (valid from 2024-25, current 2025-26)
+// Five official SQA areas of study: Understanding Business | Management of Marketing |
+// Management of Operations | Management of People | Management of Finance
+const TOPICS = [
+  { id: 'understanding', name: 'Understanding Business', icon: '🏢', sub: 'Role of business · Types of organisations · Objectives · External factors · Stakeholders' },
+  { id: 'marketing',     name: 'Management of Marketing', icon: '📣', sub: 'Market research · Marketing mix · Product life cycle · Pricing · Promotion · Place' },
+  { id: 'operations',   name: 'Management of Operations', icon: '⚙️', sub: 'Suppliers · Inventory · Methods of production · Quality · Ethical & environmental' },
+  { id: 'people',       name: 'Management of People', icon: '👥', sub: 'Recruitment · Selection · Training · Motivation · Legislation · Technology' },
+  { id: 'finance',      name: 'Management of Finance', icon: '💰', sub: 'Sources of finance · Break-even · Cash budgeting · Income statement · Technology' },
+];
+
+const QUESTIONS = [
+  // ══════════════════════════════════════════════════════
+  // UNDERSTANDING BUSINESS (25 questions)
+  // ══════════════════════════════════════════════════════
+  {topic:'understanding',type:'mcq',q:'Which sector of industry involves extracting raw materials from the earth, such as mining or farming?',
+    opts:['Secondary sector','Tertiary sector','Primary sector','Public sector'],
+    ans:2,explain:'The primary sector extracts raw materials directly from nature (farming, fishing, mining, forestry). Secondary = manufacturing. Tertiary = services.'},
+  {topic:'understanding',type:'mcq',q:'A business that is owned and run by one person who keeps all the profits but has unlimited liability is called a:',
+    opts:['Private limited company','Partnership','Sole trader','Social enterprise'],
+    ans:2,explain:'A sole trader is the simplest business structure — one owner, all profits kept, but unlimited liability means personal assets can be seized to pay business debts.'},
+  {topic:'understanding',type:'mcq',q:'What does "unlimited liability" mean for a sole trader or partner?',
+    opts:['They cannot lose more than they invested','The owner is personally responsible for ALL business debts — even using personal assets','They share losses equally with the government','They are protected by law from paying debts'],
+    ans:1,explain:'Unlimited liability means if the business cannot pay its debts, the owner\'s personal assets (house, car, savings) can be taken to pay them. This is a major disadvantage of sole traders and partnerships.'},
+  {topic:'understanding',type:'mcq',q:'Which type of organisation is owned by shareholders, has limited liability, but cannot sell shares to the general public?',
+    opts:['Public limited company (PLC)','Sole trader','Private limited company (Ltd)','Partnership'],
+    ans:2,explain:'A private limited company (Ltd) has limited liability for shareholders, but shares can only be sold privately (not on the stock exchange). E.g. a small family business incorporated as Ltd.'},
+  {topic:'understanding',type:'mcq',q:'What does PESTEC stand for in business external factors?',
+    opts:['Product, Enterprise, Sales, Technology, Environment, Competition','Political, Environmental, Social, Technological, Economic, Competitive','Profit, Expenses, Stock, Trade, Equity, Cost','People, Ethics, Supply, Trade, Economics, Communication'],
+    ans:1,explain:'PESTEC = Political, Environmental, Social, Technological, Economic, Competitive. These are the external factors (outside the business) that affect how it operates.'},
+  {topic:'understanding',type:'mcq',q:'Which of the following is an INTERNAL factor that can affect a business?',
+    opts:['A change in government tax rates','A new competitor entering the market','The business having insufficient finance','An increase in the rate of inflation'],
+    ans:2,explain:'Internal factors come from within the business: finance, human resources, technology. External factors (PESTEC) come from outside: taxes, competitors, inflation.'},
+  {topic:'understanding',type:'mcq',q:'What is the PRIMARY objective of most private sector businesses?',
+    opts:['To provide a public service','To maximise profit','To achieve social goals','To employ as many people as possible'],
+    ans:1,explain:'Private sector businesses primarily aim to make profit for their owners/shareholders. Public sector organisations aim to provide services. Third sector (social enterprises, charities) have social objectives.'},
+  {topic:'understanding',type:'mcq',q:'A "stakeholder" in a business is:',
+    opts:['Only the shareholders who own shares','Any person or group with an interest in or affected by the business','Only the managers and directors','Only the customers who buy products'],
+    ans:1,explain:'Stakeholders include: owners/shareholders, employees, customers, suppliers, banks, the local community, and the government. They all have different interests in how the business performs.'},
+  {topic:'understanding',type:'mcq',q:'Which type of business organisation is owned by its members or customers and reinvests profits for social benefit?',
+    opts:['Private limited company','Public limited company','Social enterprise','Partnership'],
+    ans:2,explain:'A social enterprise trades to achieve social/environmental goals. Profits are reinvested in the community or the mission, not distributed to private shareholders. E.g. The Big Issue, Divine Chocolate.'},
+  {topic:'understanding',type:'mcq',q:'What is a business plan PRIMARILY used for?',
+    opts:['To track daily sales','To outline the business idea, objectives, and financial projections — often to secure finance','To advertise products to customers','To record employee performance'],
+    ans:1,explain:'A business plan sets out: the business idea, target market, marketing strategy, operational plan, and financial forecasts (costs, revenue, break-even). Banks and investors require it before lending money.'},
+  {topic:'understanding',type:'mcq',q:'Which sector of the economy includes the NHS, police, and state schools?',
+    opts:['Private sector','Third sector','Public sector','Primary sector'],
+    ans:2,explain:'The public sector is owned and funded by the government. It provides essential public services (health, education, police, roads). The private sector is profit-driven and privately owned.'},
+  {topic:'understanding',type:'mcq',q:'A PARTNERSHIP is best described as:',
+    opts:['A business owned by the government','A business owned by 2–20 people who share profits, losses and usually have unlimited liability','A business with shares listed on the stock exchange','A business owned solely by one person'],
+    ans:1,explain:'A partnership has 2–20 partners who share profits, decision-making, and responsibilities. Most have unlimited liability (except limited partnerships). A Deed of Partnership sets out the terms.'},
+  {topic:'understanding',type:'mcq',q:'What is "market share"?',
+    opts:['The total value of all products sold in a market','The percentage of total market sales held by one business','The number of customers a business has','The profit made from selling in a market'],
+    ans:1,explain:'Market share = (business\'s sales ÷ total market sales) × 100. A business with 30% market share sells 30% of all products in that market. Increasing market share is a common business objective.'},
+  {topic:'understanding',type:'mcq',q:'Which of the following is an example of a COMPETITIVE external factor?',
+    opts:['A rise in the National Minimum Wage','A new business opening selling the same products','A change in government legislation','An increase in consumer spending'],
+    ans:1,explain:'Competitive factors include new competitors, rivals\' pricing, new products from competitors. These affect a business\'s ability to attract and retain customers.'},
+  {topic:'understanding',type:'mcq',q:'The "factors of production" are:',
+    opts:['Land, Labour, Capital, Enterprise','Product, Price, Place, Promotion','Revenue, Costs, Profit, Loss','Shareholders, Directors, Managers, Workers'],
+    ans:0,explain:'The four factors of production: Land (natural resources), Labour (workers), Capital (machinery/equipment/money), Enterprise (the entrepreneur who combines the other factors). All needed to produce goods/services.'},
+  {topic:'understanding',type:'fillin',q:'A business where shareholders\' personal assets are protected if the company goes into debt is said to have _____ liability.',ans:'limited',explain:'Limited liability means shareholders only risk losing the money they invested in shares — their personal assets are protected. This encourages investment in companies.'},
+  {topic:'understanding',type:'fillin',q:'The sector of the economy containing charities, voluntary organisations, and social enterprises is called the _____ sector.',ans:'third',explain:'The third sector (also called the voluntary or not-for-profit sector) includes charities, social enterprises, and voluntary organisations. They have social objectives rather than profit objectives.'},
+  {topic:'understanding',type:'fillin',q:'The external factors that affect a business can be remembered using the acronym _____.',ans:'PESTEC',explain:'PESTEC = Political, Environmental, Social, Technological, Economic, Competitive. These factors are outside the business\'s control but significantly affect its operations and decisions.'},
+  {topic:'understanding',type:'fillin',q:'A new business should prepare a _____ plan before starting, showing its goals, strategy, and financial projections.',ans:'business',explain:'A business plan is essential for new businesses — it helps secure bank loans or investment, keeps the entrepreneur focused, and identifies potential problems before they occur.'},
+
+  // ══════════════════════════════════════════════════════
+  // MANAGEMENT OF MARKETING (25 questions)
+  // ══════════════════════════════════════════════════════
+  {topic:'marketing',type:'mcq',q:'What are the four elements of the MARKETING MIX (the 4 Ps)?',
+    opts:['Product, Profit, Place, Promotion','Product, Price, Place, Promotion','People, Price, Planning, Promotion','Product, Price, People, Packaging'],
+    ans:1,explain:'The marketing mix (4 Ps): Product (what you sell), Price (what you charge), Place (where you sell), Promotion (how you communicate). All four must work together to satisfy customer needs.'},
+  {topic:'marketing',type:'mcq',q:'FIELD research involves:',
+    opts:['Collecting existing data from published sources such as the internet','Collecting NEW data first-hand through surveys, interviews or focus groups','Analysing competitors\' sales figures','Reading industry reports and government statistics'],
+    ans:1,explain:'Field research (primary research) collects new data directly: surveys, questionnaires, interviews, focus groups, observation. It\'s specific to your needs but expensive and time-consuming.'},
+  {topic:'marketing',type:'mcq',q:'DESK research involves:',
+    opts:['Conducting surveys with customers','Gathering new data through personal interviews','Using existing data already collected, such as sales records, internet, newspapers','Setting up focus groups'],
+    ans:2,explain:'Desk research (secondary research) uses existing data: company sales records, internet, newspapers, government statistics, trade magazines. It\'s cheaper and quicker but may not be specific to your needs.'},
+  {topic:'marketing',type:'mcq',q:'The stage of the Product Life Cycle where sales grow rapidly and profits begin to rise is called:',
+    opts:['Research and Development','Introduction','Growth','Maturity'],
+    ans:2,explain:'Product Life Cycle stages: R&D (costly, no sales) → Introduction (low sales, high costs) → Growth (sales rise rapidly, profits begin) → Maturity (peak sales) → Decline (falling sales). Understanding this helps marketing decisions.'},
+  {topic:'marketing',type:'mcq',q:'Which pricing strategy involves setting a HIGH initial price for a new product, then lowering it over time?',
+    opts:['Penetration pricing','Competitive pricing','Price skimming','Cost-plus pricing'],
+    ans:2,explain:'Price skimming: high initial price targets early adopters (who will pay more), then price drops to attract more customers. Used for new technology (e.g. new iPhone). Contrast with penetration pricing (low price to gain market share quickly).'},
+  {topic:'marketing',type:'mcq',q:'Which pricing strategy involves setting a LOWER price than competitors to gain market share quickly?',
+    opts:['Price skimming','Penetration pricing','Premium pricing','Cost-plus pricing'],
+    ans:1,explain:'Penetration pricing: low initial price attracts customers quickly and builds market share. Once established, prices may rise. Used by streaming services (e.g. low intro offers). Disadvantage: low profit margins initially.'},
+  {topic:'marketing',type:'mcq',q:'What is BRANDING?',
+    opts:['The physical label on a product','Creating a unique name, logo, and image that distinguishes a product from competitors','Setting the price of a product','Deciding where to sell a product'],
+    ans:1,explain:'Branding creates a distinctive identity: name, logo, colours, tagline. Strong brands build customer loyalty, allow premium pricing, and make products instantly recognisable (e.g. Nike\'s swoosh, Apple\'s logo).'},
+  {topic:'marketing',type:'mcq',q:'A "target market" is:',
+    opts:['The maximum number of products a business wants to sell','The specific group of customers a business aims its marketing at','The geographic area where a business operates','The total number of customers in a market'],
+    ans:1,explain:'A target market is the specific segment of customers a business focuses on. Markets can be segmented by age, income, gender, location, lifestyle, etc. Targeting allows more focused, effective marketing.'},
+  {topic:'marketing',type:'mcq',q:'Which of the following is an example of ABOVE-THE-LINE promotion?',
+    opts:['A salesperson calling customers directly','Sponsoring a local sports team','A TV advertisement','Sending loyalty discount vouchers to existing customers'],
+    ans:2,explain:'Above-the-line promotion uses mass media: TV, radio, newspapers, billboards, cinema. It reaches a wide audience. Below-the-line uses targeted methods: direct mail, social media, loyalty schemes, sales promotions.'},
+  {topic:'marketing',type:'mcq',q:'What is the purpose of MARKET RESEARCH?',
+    opts:['To reduce production costs','To gather information about customers, competitors, and the market to make better business decisions','To train sales staff','To manage the supply chain'],
+    ans:1,explain:'Market research gathers data to understand: what customers want, who competitors are, market trends, and potential demand. This reduces the risk of launching products that fail. Costs must be balanced against benefits.'},
+  {topic:'marketing',type:'mcq',q:'The stage in the Product Life Cycle where the product is tested and developed before launch — with high costs and NO sales — is called:',
+    opts:['Introduction','Growth','Maturity','Research and Development (R&D)'],
+    ans:3,explain:'R&D (Research and Development): product is created and tested. Very high costs, no revenue yet. Many products never make it past this stage. Examples: developing a new drug, designing a new car model.'},
+  {topic:'marketing',type:'mcq',q:'Which distribution method involves selling directly from manufacturer to customer with NO intermediaries?',
+    opts:['Selling through a retailer','Selling through a wholesaler','Direct selling (e.g. online, factory shop)','Selling through an agent'],
+    ans:2,explain:'Direct distribution: manufacturer → customer (no middlemen). Examples: online stores (Amazon selling own products), farm shops, door-to-door. Benefits: higher profit margins, direct customer relationship. Drawback: less reach.'},
+  {topic:'marketing',type:'mcq',q:'A FOCUS GROUP is a type of:',
+    opts:['Desk research using published data','Field research where a small group discusses a product or issue in depth','Quantitative survey sent to thousands of people','Analysis of past sales data'],
+    ans:1,explain:'A focus group is qualitative field research: a small group (6–12 people) guided by a researcher to discuss products, ideas, or issues in depth. Provides detailed opinions but results may not be representative of the wider population.'},
+  {topic:'marketing',type:'mcq',q:'What is "ethical marketing"?',
+    opts:['Marketing that maximises profits at any cost','Marketing that is honest, fair, and does not mislead or exploit consumers','Marketing only to adults over 18','Marketing with the highest possible budget'],
+    ans:1,explain:'Ethical marketing ensures: honest advertising (no false claims), fair targeting (not exploiting vulnerable groups like children), transparent pricing, and socially responsible messages. The ASA (Advertising Standards Authority) regulates UK advertising.'},
+  {topic:'marketing',type:'mcq',q:'Technology has changed marketing. Which of the following is an example of how technology is used in marketing?',
+    opts:['Using paper catalogues only','Social media advertising, email campaigns, and online analytics to target customers','Relying on word of mouth only','Using TV ads from the 1970s'],
+    ans:1,explain:'Technology in marketing: social media (Facebook, Instagram ads), SEO (search engine optimisation), email marketing, online customer data analytics, e-commerce websites, influencer marketing. These allow targeted, measurable, and cost-effective campaigns.'},
+  {topic:'marketing',type:'fillin',q:'The four elements of the marketing mix are product, price, place and _____.',ans:'promotion',explain:'Promotion is how a business communicates with its target market: advertising, public relations, sales promotions, direct marketing, and social media. It aims to persuade customers to buy.'},
+  {topic:'marketing',type:'fillin',q:'Market research that uses existing data already collected by others is called _____ research.',ans:'desk',explain:'Desk (secondary) research uses existing information: sales records, internet searches, government reports, competitor analysis. It\'s cheaper and quicker than field (primary) research but may not be specific enough.'},
+  {topic:'marketing',type:'fillin',q:'The stage in the product life cycle where sales are at their peak and most competitors are in the market is called _____.',ans:'maturity',explain:'At maturity, sales peak and competition is highest. Businesses may use extension strategies (new packaging, new markets, new uses) to prolong this stage and delay decline.'},
+
+  // ══════════════════════════════════════════════════════
+  // MANAGEMENT OF OPERATIONS (20 questions)
+  // ══════════════════════════════════════════════════════
+  {topic:'operations',type:'mcq',q:'Which method of production makes ONE unique product at a time, tailored to a specific customer order?',
+    opts:['Flow production','Batch production','Job production','Mass production'],
+    ans:2,explain:'Job production: each product is made individually to order (e.g. a wedding cake, a bespoke suit, a bridge). High quality, flexible, but slow and expensive. Workers are often skilled craftspeople.'},
+  {topic:'operations',type:'mcq',q:'Which method of production makes GROUPS of identical products, then switches to a different product?',
+    opts:['Job production','Batch production','Flow production','Just-in-time production'],
+    ans:1,explain:'Batch production: groups (batches) of similar products are made together. E.g. a bakery makes 200 white loaves then switches to 200 brown loaves. More efficient than job but less flexible than flow.'},
+  {topic:'operations',type:'mcq',q:'Which method of production involves a continuous assembly line making large quantities of identical products?',
+    opts:['Job production','Batch production','Flow (mass) production','Seasonal production'],
+    ans:2,explain:'Flow (mass) production: continuous production line making identical products in large quantities (e.g. car manufacturing, bottling drinks). Very efficient and low unit cost, but high set-up costs and inflexible.'},
+  {topic:'operations',type:'mcq',q:'What is the main problem with OVERSTOCKING inventory?',
+    opts:['Not enough products to meet customer demand','Wasted storage space, increased costs, and risk of products expiring or becoming obsolete','Too many suppliers to manage','Reduced quality of products'],
+    ans:1,explain:'Overstocking: too much stock ties up cash, costs money to store, risks spoilage/obsolescence. Understocking: lose sales, disappoint customers, damage reputation. Effective inventory management avoids both extremes.'},
+  {topic:'operations',type:'mcq',q:'What is the main problem with UNDERSTOCKING inventory?',
+    opts:['Wasted storage space','High storage costs','Unable to meet customer demand — lost sales and damage to reputation','Products becoming out of date'],
+    ans:2,explain:'Understocking means a business cannot fulfil customer orders. Customers may go to competitors and may not return. In manufacturing, it can halt production lines, causing expensive downtime.'},
+  {topic:'operations',type:'mcq',q:'QUALITY CONTROL involves:',
+    opts:['Training employees in quality at every stage of production','Checking products at the END of the production process to identify defects','Ensuring ethical sourcing of materials','Using the best possible raw materials'],
+    ans:1,explain:'Quality control: inspection of finished products to identify and remove defects before they reach customers. Contrast with quality assurance (checking quality throughout the process, not just at the end).'},
+  {topic:'operations',type:'mcq',q:'QUALITY ASSURANCE involves:',
+    opts:['Checking products only after they are fully made','Building quality checks into every stage of the production process — prevention not inspection','Using the most expensive materials available','Hiring more quality inspectors'],
+    ans:1,explain:'Quality assurance is a proactive approach: quality is built in at every stage. Everyone is responsible for quality. This prevents defects rather than just detecting them. More effective but requires culture change.'},
+  {topic:'operations',type:'mcq',q:'Which of the following is a factor to consider when choosing a SUPPLIER?',
+    opts:['The colour of the supplier\'s logo','Price, quality, reliability, delivery time, and ethical practices','The supplier\'s advertising budget','Whether the supplier uses social media'],
+    ans:1,explain:'When choosing a supplier, consider: price (affects costs), quality (affects product quality), reliability (can they deliver on time?), lead time (how long to deliver?), ethical practices (fair trade, environmental standards).'},
+  {topic:'operations',type:'mcq',q:'Producing goods in an ETHICAL and ENVIRONMENTALLY FRIENDLY way might include:',
+    opts:['Using the cheapest possible materials regardless of source','Sourcing materials from fair trade suppliers, reducing waste, and using renewable energy','Maximising production regardless of environmental impact','Outsourcing all production to countries with no regulations'],
+    ans:1,explain:'Ethical and environmental production: fair trade sourcing, reducing carbon footprint, minimising waste, using renewable energy, ensuring safe working conditions in the supply chain. Increasingly important to consumers.'},
+  {topic:'operations',type:'mcq',q:'Which type of production would be MOST suitable for manufacturing cars?',
+    opts:['Job production','Batch production','Flow (mass) production','Handmade production'],
+    ans:2,explain:'Cars are produced in large quantities using automated assembly lines (flow production). Some luxury car makers (e.g. Rolls-Royce) use job production, but most mainstream manufacturers use flow production for efficiency.'},
+  {topic:'operations',type:'mcq',q:'Technology in operations management can include:',
+    opts:['Only hand tools and manual labour','CAD (computer-aided design), CAM (computer-aided manufacture), robots, and stock management software','Only spreadsheets for record keeping','Only telephone ordering systems'],
+    ans:1,explain:'Technology in operations: CAD designs products on computers; CAM manufactures using computers/robots; EPOS systems track inventory in real time; automated warehouse systems. These improve speed, accuracy, and reduce costs.'},
+  {topic:'operations',type:'fillin',q:'Making a product one at a time to a specific customer order is called _____ production.',ans:'job',explain:'Job production creates unique, customised products. Examples: bespoke tailoring, custom wedding cakes, shipbuilding, architectural design. High quality but expensive and time-consuming.'},
+  {topic:'operations',type:'fillin',q:'Checking product quality at the END of the production process to remove defects is called quality _____.',ans:'control',explain:'Quality control is reactive — it finds defects after they occur. Quality assurance is proactive — it prevents defects at every stage. Most modern businesses prefer quality assurance as it is less wasteful.'},
+
+  // ══════════════════════════════════════════════════════
+  // MANAGEMENT OF PEOPLE (20 questions)
+  // ══════════════════════════════════════════════════════
+  {topic:'people',type:'mcq',q:'What is the correct ORDER of the recruitment process?',
+    opts:['Interview → Advertise → Job description → Select','Job analysis → Job description → Person specification → Advertise → Applications → Shortlist → Interview → Select → Offer','Advertise → Hire → Train → Appraise','Select → Interview → Advertise → Apply'],
+    ans:1,explain:'Recruitment stages: Job analysis → Job description (duties) → Person specification (qualities needed) → Advertise → Receive applications → Shortlist → Interview → Select → Issue contract. Each stage filters candidates.'},
+  {topic:'people',type:'mcq',q:'A JOB DESCRIPTION contains:',
+    opts:['The qualities and skills the ideal applicant must have','The title, duties, responsibilities, and pay of a job','The training plan for a new employee','The reasons why an employee was dismissed'],
+    ans:1,explain:'A job description outlines: job title, department, main duties and responsibilities, working hours, pay/salary. Contrast with a person specification, which describes the ideal candidate\'s qualifications, skills, and experience.'},
+  {topic:'people',type:'mcq',q:'A PERSON SPECIFICATION describes:',
+    opts:['The duties and responsibilities of a job','The qualities, qualifications, skills, and experience required in the ideal candidate','The pay and working hours of a job','The training opportunities available'],
+    ans:1,explain:'A person specification lists what the ideal applicant should have: essential and desirable qualifications, skills, experience, and personal qualities. Used alongside the job description to shortlist candidates.'},
+  {topic:'people',type:'mcq',q:'Which type of training is delivered AWAY from the normal place of work, for example at a college or training centre?',
+    opts:['On-the-job training','Induction training','Off-the-job training','Appraisal training'],
+    ans:2,explain:'Off-the-job training: courses, workshops, or college programmes away from the workplace. Benefits: specialist training, no distractions from work. Drawbacks: expensive, employee not working while training.'},
+  {topic:'people',type:'mcq',q:'Which type of training is delivered WITHIN the workplace, often by a more experienced colleague?',
+    opts:['Off-the-job training','Induction training at college','On-the-job training','External training programme'],
+    ans:2,explain:'On-the-job training: learning while working, under guidance of an experienced colleague (e.g. shadowing, mentoring). Benefits: relevant, productive, cheaper. Drawbacks: may learn bad habits, can slow down the trainer.'},
+  {topic:'people',type:'mcq',q:'What is INDUCTION training?',
+    opts:['Advanced training for experienced managers','Training given to a NEW employee when they first join an organisation','Training to retrain employees in new technology','Training given when an employee is promoted'],
+    ans:1,explain:'Induction training introduces new employees to: company policies, health & safety, their role, colleagues, and the organisation\'s culture. Reduces early mistakes and helps new staff settle in quickly.'},
+  {topic:'people',type:'mcq',q:'Maslow\'s Hierarchy of Needs suggests that workers are motivated by:',
+    opts:['Only pay and financial rewards','A hierarchy from basic needs (pay, safety) up to higher needs (esteem, self-actualisation)','Only praise and recognition','Only job security'],
+    ans:1,explain:'Maslow\'s hierarchy: (1) Physiological (pay for food/shelter) → (2) Safety (job security) → (3) Social (teamwork, belonging) → (4) Esteem (recognition, status) → (5) Self-actualisation (reaching full potential). Lower needs must be met before higher ones motivate.'},
+  {topic:'people',type:'mcq',q:'Which payment system pays employees a fixed amount per year, divided into equal monthly payments?',
+    opts:['Wages (hourly pay)','Salary','Commission','Piece rate'],
+    ans:1,explain:'Salary: fixed annual payment (e.g. £25,000/year), paid monthly. Provides income certainty. Wages are paid per hour (flexible with hours worked). Commission is % of sales made. Piece rate is per item produced.'},
+  {topic:'people',type:'mcq',q:'What is INDUSTRIAL ACTION?',
+    opts:['When management introduces new machinery','Steps taken by employees (usually through a trade union) to put pressure on an employer, such as a strike or work-to-rule','When a business opens a new factory','Government intervention in a business dispute'],
+    ans:1,explain:'Industrial action: workers collectively pressure employers. Types: strike (refuse to work), work-to-rule (only do exactly what contract says), overtime ban (refuse extra hours), go-slow. Usually organised by trade unions.'},
+  {topic:'people',type:'mcq',q:'The EQUALITY ACT 2010 protects employees from discrimination based on:',
+    opts:['Only gender and race','Only age and disability','Protected characteristics including age, disability, gender, race, religion, sexual orientation, pregnancy, and more','Only religion and political beliefs'],
+    ans:2,explain:'The Equality Act 2010 protects against discrimination based on "protected characteristics": age, disability, gender reassignment, marriage, pregnancy/maternity, race, religion/belief, sex, and sexual orientation. Applies to hiring, pay, and working conditions.'},
+  {topic:'people',type:'mcq',q:'The HEALTH AND SAFETY AT WORK ACT 1974 requires employers to:',
+    opts:['Pay employees at least the National Minimum Wage','Provide a safe working environment, training, and equipment to protect employees\' health and safety','Give employees at least 28 days holiday per year','Ensure all employees have a written contract'],
+    ans:1,explain:'The Health and Safety at Work Act 1974: employers must provide safe premises, safe equipment, adequate training, and a safety policy. Employees must cooperate with safety procedures. HSE (Health and Safety Executive) enforces this.'},
+  {topic:'people',type:'mcq',q:'Technology used in human resource management might include:',
+    opts:['Only paper-based filing systems','HR software for payroll and records, video interviewing, online training platforms, and flexible working technology','Only face-to-face meetings','Only traditional noticeboards for job adverts'],
+    ans:1,explain:'Technology in HR: HR management systems (payroll, records, absence tracking), video interviews (Zoom, Teams), e-learning platforms, online job boards, flexible working tools. These improve efficiency and reduce admin costs.'},
+  {topic:'people',type:'fillin',q:'The document that describes the duties, responsibilities and pay associated with a job vacancy is called a job _____.',ans:'description',explain:'A job description is produced when a vacancy arises. It outlines: job title, department, main duties, responsibility level, pay, and reporting lines. Given to applicants alongside the person specification.'},
+  {topic:'people',type:'fillin',q:'Training given to new employees to help them understand the organisation, their role, and health & safety is called _____ training.',ans:'induction',explain:'Induction training is the first training new employees receive. It reduces mistakes, helps staff settle in, and ensures they understand key policies (especially health and safety) from day one.'},
+  {topic:'people',type:'fillin',q:'The motivational theory that suggests workers have a hierarchy of needs from basic pay up to self-fulfilment is called _____\'s Hierarchy of Needs.',ans:'Maslow',explain:'Abraham Maslow\'s Hierarchy of Needs (1943): physiological → safety → social → esteem → self-actualisation. Managers can use this to understand what motivates different employees at different stages of their career.'},
+
+  // ══════════════════════════════════════════════════════
+  // MANAGEMENT OF FINANCE (20 questions)
+  // ══════════════════════════════════════════════════════
+  {topic:'finance',type:'mcq',q:'What is a CASH FLOW STATEMENT?',
+    opts:['A record of all assets owned by a business','A forecast or record of money flowing INTO and OUT OF a business over a period of time','A list of all products sold by a business','A document showing the business\'s market share'],
+    ans:1,explain:'A cash flow statement shows money coming in (receipts: sales, loans) and money going out (payments: wages, rent, supplies). It helps identify when a business might run short of cash and plan accordingly.'},
+  {topic:'finance',type:'mcq',q:'GROSS PROFIT is calculated as:',
+    opts:['Sales revenue minus ALL expenses','Sales revenue minus cost of sales (cost of making/buying the goods)','Total revenue minus taxes','Sales revenue minus wages only'],
+    ans:1,explain:'Gross profit = Sales revenue − Cost of Sales (direct costs of making/buying the product). It shows profit before overheads (rent, wages, admin). Net profit (profit for the year) = Gross profit − Expenses.'},
+  {topic:'finance',type:'mcq',q:'The BREAK-EVEN POINT is where:',
+    opts:['A business makes its maximum profit','Total revenue equals total costs — the business makes neither profit nor loss','A business\'s costs exceed its revenue','A business achieves its sales target'],
+    ans:1,explain:'Break-even point: Total Revenue = Total Costs. Below this point the business makes a loss; above it makes a profit. Break-even = Fixed Costs ÷ (Selling Price − Variable Cost per unit). Essential for planning and pricing.'},
+  {topic:'finance',type:'mcq',q:'FIXED COSTS are:',
+    opts:['Costs that change directly with the level of production','Costs that stay the same regardless of output levels (e.g. rent, insurance, managers\' salaries)','Costs that only apply in the summer','Variable costs that can be controlled'],
+    ans:1,explain:'Fixed costs don\'t change with output: rent, insurance, management salaries, loan repayments. They must be paid even if nothing is produced. Variable costs change with output: raw materials, packaging, direct labour.'},
+  {topic:'finance',type:'mcq',q:'VARIABLE COSTS are:',
+    opts:['Costs that stay the same regardless of production levels','Costs that change directly with the level of output (e.g. raw materials, packaging, direct labour)','Costs that only apply in winter','The same as fixed costs'],
+    ans:1,explain:'Variable costs change in proportion to output: more production = higher variable costs. Examples: raw materials, packaging, direct labour paid per item. Total costs = Fixed costs + Variable costs.'},
+  {topic:'finance',type:'mcq',q:'Which of the following is an INTERNAL source of finance?',
+    opts:['Bank loan','Share issue','Retained profits (profits kept in the business rather than paid out)','Mortgage'],
+    ans:2,explain:'Internal sources: retained profit (reinvesting business profits), selling assets, owner\'s savings. External sources: bank loan, share issue, mortgage, overdraft, venture capital, grants. Internal sources have no interest to pay.'},
+  {topic:'finance',type:'mcq',q:'Which source of finance is MOST suitable for a sole trader needing a small amount of money quickly?',
+    opts:['Issuing shares on the stock exchange','Taking out a large long-term bank mortgage','Using personal savings or a small bank overdraft','Applying for venture capital investment'],
+    ans:2,explain:'Sole traders cannot issue shares. A mortgage is for property. Venture capital is for high-growth businesses. Personal savings or an overdraft are the most practical options for small, quick finance needs.'},
+  {topic:'finance',type:'mcq',q:'A NEGATIVE cash flow means:',
+    opts:['The business is making a profit','More money is going OUT of the business than coming in — a potential problem','The business has too much stock','The business\'s sales are growing'],
+    ans:1,explain:'Negative cash flow: outflows > inflows in a period. The business may struggle to pay its bills. Solutions: arrange overdraft, delay payments to suppliers, chase customers to pay faster, cut costs, increase sales.'},
+  {topic:'finance',type:'mcq',q:'What is shown on an INCOME STATEMENT (profit and loss account)?',
+    opts:['A list of everything the business owns and owes','Sales revenue, cost of sales, gross profit, expenses, and net profit/loss for the year','A forecast of future cash flows','A list of all employees and their salaries'],
+    ans:1,explain:'Income statement: Sales Revenue − Cost of Sales = Gross Profit. Gross Profit − Expenses (overheads) = Net Profit (or loss) for the year. It shows profitability over a trading period (e.g. one year).'},
+  {topic:'finance',type:'mcq',q:'The MARGIN OF SAFETY is:',
+    opts:['The profit made above the break-even point','The difference between ACTUAL sales and the BREAK-EVEN level of sales — how far sales can fall before a loss is made','The maximum profit possible','The difference between fixed and variable costs'],
+    ans:1,explain:'Margin of safety = Actual sales − Break-even sales. It shows how much sales can fall before the business starts making a loss. A large margin of safety means the business is in a secure financial position.'},
+  {topic:'finance',type:'fillin',q:'Break-even point = Fixed Costs ÷ (Selling Price − _____ Cost per unit).',ans:'variable',explain:'The break-even formula: Fixed Costs ÷ (Selling Price − Variable Cost per unit). The bottom part (Selling Price − Variable Cost) is called the "contribution per unit" — each unit sold contributes this amount towards paying fixed costs.'},
+  {topic:'finance',type:'fillin',q:'Sales Revenue minus Cost of Sales equals _____ profit.',ans:'gross',explain:'Gross profit = Sales revenue − Cost of sales (direct costs). It shows how much profit is made from trading before deducting operating expenses (overheads). Net profit = Gross profit − Expenses.'},
+  {topic:'finance',type:'fillin',q:'Costs that remain the same regardless of how much is produced (e.g. rent and insurance) are called _____ costs.',ans:'fixed',explain:'Fixed costs are constant regardless of output level. They include rent, rates, insurance, and management salaries. Even if a business produces nothing, it still must pay its fixed costs.'},
+];
+
+// ═══════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════
+let xp = 0, level = 1, streak = 0, bestStreak = 0;
+let totalAnswered = 0, totalCorrect = 0;
+let topicStats = { understanding:{a:0,c:0}, marketing:{a:0,c:0}, operations:{a:0,c:0}, people:{a:0,c:0}, finance:{a:0,c:0} };
+let dailyGoal = 10, dailyDone = 0;
+let quizPool = [], quizIdx = 0;
+let currentQ = null;
+let fcCards = [], fcIdx = 0, fcKnew = 0;
+let mockQuestions = [], mockIdx = 0, mockScore = 0;
+let mockTimer = null, mockTimeLeft = 0, mockStartTime = null;
+let wsScores = [{c:0,t:0},{c:0,t:0},{c:0,t:0}], wsSheet = 0;
+const WS_IDS = [
+  ['wq-ub1','wq-ub2','wq-ub3','wq-ub4','wq-ub5'],
+  ['wq-mk1','wq-mk2','wq-mk3','wq-mk4'],
+  ['wq-fi1','wq-fi2','wq-fi3','wq-fi4']
+];
+
+// ── PERSIST ──
+function saveState() {
+  try {
+    localStorage.setItem('nat5bio_v2', JSON.stringify({
+      xp, level, streak, bestStreak, totalAnswered, totalCorrect,
+      topicStats, dailyGoal, dailyDone: getDailyDone()
+    }));
+  } catch(e){}
+}
+function loadState() {
+  try {
+    const s = JSON.parse(localStorage.getItem('nat5bio_v2')||'{}');
+    xp = s.xp||0; level = s.level||1; streak = s.streak||0;
+    bestStreak = s.bestStreak||0; totalAnswered = s.totalAnswered||0;
+    totalCorrect = s.totalCorrect||0; topicStats = s.topicStats||topicStats;
+    dailyGoal = s.dailyGoal||10;
+    const today = new Date().toDateString();
+    const savedDay = s.dailyDay||'';
+    dailyDone = savedDay === today ? (s.dailyDone||0) : 0;
+  } catch(e){}
+}
+function getDailyDone(){ return dailyDone; }
+loadState();
+
+// ── NAV ──
+function nav(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  document.querySelector(`[data-page="${page}"]`)?.classList.add('active');
+  if (page==='progress') renderProgress();
+  if (page==='topics') renderTopicPage();
+}
+
+// ── TOPBAR ──
+function updateTopbar() {
+  document.getElementById('xp-val').textContent = xp;
+  document.getElementById('streak-val').textContent = streak;
+  document.getElementById('lv-badge').textContent = 'Lv '+level;
+}
+function showXPToast(pts) {
+  const t = document.getElementById('xp-toast');
+  t.textContent = '+'+pts+' XP ⭐';
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 1800);
+}
+function addXP(pts) {
+  xp += pts;
+  const needed = level * 100;
+  if (xp >= needed) { level++; xp -= needed; showXPToast(pts); }
+  else showXPToast(pts);
+  updateTopbar();
+}
+
+// ── DAILY GOAL ──
+function updateGoal(inc=1) {
+  dailyDone += inc;
+  const pct = Math.min(100, (dailyDone/dailyGoal)*100);
+  document.getElementById('goal-fill').style.width = pct+'%';
+  document.getElementById('goal-txt').textContent = dailyDone+'/'+dailyGoal;
+  if (dailyDone >= dailyGoal) {
+    document.getElementById('goal-txt').textContent = '✅ Done!';
+  }
+}
+
+// ── PRACTICE ──
+function getPool() {
+  const t = document.getElementById('topic-sel').value;
+  const ty = document.getElementById('type-sel').value;
+  let pool = QUESTIONS.filter(q =>
+    (t==='all' || q.topic===t) &&
+    (ty==='all' || q.type===ty)
+  );
+  return shuffle(pool);
+}
+
+function newQuestion() {
+  if (!quizPool.length || quizIdx >= quizPool.length) {
+    quizPool = getPool();
+    quizIdx = 0;
+  }
+  currentQ = quizPool[quizIdx++];
+  renderQ(currentQ);
+  const pct = Math.min(100,(quizIdx/Math.max(quizPool.length,1))*100);
+  document.getElementById('q-progress-fill').style.width = pct+'%';
+}
+
+function renderQ(q) {
+  const topicName = TOPICS.find(t=>t.id===q.topic)?.name||'';
+  const diffTag = quizIdx <= 3 ? 'easy' : quizIdx <= 7 ? '' : 'hard';
+  const diffLabel = diffTag==='easy'?'Easy':diffTag==='hard'?'Hard':'Medium';
+  const letters = ['A','B','C','D'];
+  let inner = '';
+  if (q.type==='mcq') {
+    const shuffledOpts = q.opts.map((o,i)=>({o,correct:i===q.ans}));
+    inner = `<div class="opts">${shuffledOpts.map((op,i)=>`
+      <button class="opt-btn" onclick="checkMCQ(this,${op.correct})">
+        <span class="opt-letter">${letters[i]}</span>${op.o}
+      </button>`).join('')}</div>`;
+  } else {
+    inner = `<input class="fill-input" id="fill-ans" placeholder="Type your answer…" onkeydown="if(event.key==='Enter')checkFill()">
+      <div class="btn-row"><button class="btn btn-green" onclick="checkFill()">Check ✓</button><button class="btn btn-ghost" onclick="newQuestion()">Skip →</button></div>`;
+  }
+  document.getElementById('question-area').innerHTML = `
+    <div class="q-card">
+      <div class="q-card-header">
+        <span class="q-tag">${topicName.toUpperCase()}</span>
+        ${diffTag?`<span class="q-tag ${diffTag}">${diffLabel}</span>`:''}
+        <span class="q-num">Q${quizIdx} / ${quizPool.length}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      ${inner}
+      <div class="explanation" id="expl">
+        <div class="expl-label">📚 Explanation</div>
+        ${q.explain||''}
+      </div>
+    </div>
+    <div class="btn-row" id="next-row" style="display:none">
+      <button class="btn btn-green" onclick="newQuestion()">Next Question →</button>
+    </div>`;
+}
+
+function checkMCQ(el, correct) {
+  document.querySelectorAll('.opt-btn').forEach(b=>b.disabled=true);
+  el.classList.add(correct?'correct':'wrong');
+  if (!correct) {
+    document.querySelectorAll('.opt-btn').forEach(b=>{
+      if(!b.classList.contains('wrong')) b.classList.add('correct');
+    });
+  }
+  recordAnswer(correct, currentQ?.topic);
+  document.getElementById('expl')?.classList.add('show');
+  const nr = document.getElementById('next-row');
+  if(nr) nr.style.display='flex';
+}
+
+function checkFill() {
+  const inp = document.getElementById('fill-ans');
+  if (!inp||!currentQ) return;
+  const val = inp.value.trim().toLowerCase();
+  const ans = currentQ.ans.toLowerCase();
+  const correct = val===ans || ans.includes(val) || val.includes(ans);
+  inp.classList.add(correct?'correct':'wrong');
+  inp.disabled = true;
+  document.querySelector('.btn-green')?.setAttribute('disabled','true');
+  if (!correct) {
+    const note = document.createElement('div');
+    note.style.cssText='color:var(--accent2);font-size:0.8rem;margin:6px 0';
+    note.textContent='✓ Correct answer: '+currentQ.ans;
+    inp.after(note);
+  }
+  recordAnswer(correct, currentQ?.topic);
+  document.getElementById('expl')?.classList.add('show');
+  const nr = document.getElementById('next-row');
+  if(nr) nr.style.display='flex';
+}
+
+function recordAnswer(correct, topic) {
+  totalAnswered++;
+  if(correct){ totalCorrect++; streak++; if(streak>bestStreak)bestStreak=streak; addXP(correct?10:2); }
+  else { streak=0; addXP(2); }
+  if(topic && topicStats[topic]){ topicStats[topic].a++; if(correct)topicStats[topic].c++; }
+  updateGoal();
+  updateTopbar();
+  saveState();
+}
+
+// ── FLASHCARDS ──
+function startFlashcards() {
+  const t = document.getElementById('fc-topic-sel').value;
+  fcCards = shuffle(QUESTIONS.filter(q=>t==='all'||q.topic===t));
+  fcIdx = 0; fcKnew = 0;
+  renderFC();
+}
+function renderFC() {
+  if (!fcCards.length) return;
+  const q = fcCards[fcIdx % fcCards.length];
+  const topicName = TOPICS.find(t=>t.id===q.topic)?.name||'';
+  const ans = q.type==='mcq' ? q.opts[q.ans] : q.ans;
+  document.getElementById('fc-front-text').textContent = q.q;
+  document.getElementById('fc-back-text').innerHTML = `<strong style="color:var(--accent4)">${ans}</strong>${q.explain?`<br><br><span style="font-size:0.8rem;color:var(--muted)">${q.explain}</span>`:''}`;
+  document.getElementById('fc-inner').classList.remove('flipped');
+  const total = fcCards.length;
+  const pct = Math.round((fcIdx/total)*100);
+  document.getElementById('fc-prog-txt').textContent = (fcIdx+1)+' / '+total;
+  document.getElementById('fc-prog-fill').style.width = pct+'%';
+  document.getElementById('fc-knew-txt').textContent = fcKnew;
+}
+function flipCard(){ document.getElementById('fc-inner').classList.toggle('flipped'); }
+function fcNext(knew) {
+  if(!fcCards.length) return;
+  if(knew){ fcKnew++; recordAnswer(true, fcCards[fcIdx%fcCards.length].topic); }
+  fcIdx++;
+  if(fcIdx >= fcCards.length){ fcIdx=0; fcCards=shuffle(fcCards); }
+  renderFC();
+}
+
+// ── MOCK EXAM ──
+let mockPaperType = 'paper1';
+function startMock(paper) {
+  mockPaperType = paper;
+  mockQuestions = shuffle(QUESTIONS).slice(0,25);
+  mockIdx = 0; mockScore = 0;
+  const mins = paper==='paper1'?30:40;
+  mockTimeLeft = mins*60;
+  mockStartTime = Date.now();
+  document.getElementById('mock-home').style.display='none';
+  document.getElementById('mock-exam').style.display='block';
+  document.getElementById('mock-results').style.display='none';
+  document.getElementById('mock-paper-label').textContent = paper==='paper1'?'Paper 1':'Paper 2';
+  document.getElementById('mock-total-live').textContent = 25;
+  mockTimer = setInterval(()=>{
+    mockTimeLeft--;
+    const m=Math.floor(mockTimeLeft/60), s=mockTimeLeft%60;
+    document.getElementById('mock-timer').textContent = String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    if(mockTimeLeft<=0){ clearInterval(mockTimer); mockShowResults(); }
+  },1000);
+  renderMockQ();
+}
+function renderMockQ() {
+  if(mockIdx>=mockQuestions.length){ mockEnd(); return; }
+  const q = mockQuestions[mockIdx];
+  const topicName = TOPICS.find(t=>t.id===q.topic)?.name||'';
+  const letters=['A','B','C','D'];
+  document.getElementById('mock-progress-fill').style.width=((mockIdx/25)*100)+'%';
+  document.getElementById('mock-score-live').textContent = mockScore;
+  let inner='';
+  if(q.type==='mcq'){
+    inner=`<div class="opts">${q.opts.map((o,i)=>`
+      <button class="opt-btn" onclick="mockCheckMCQ(this,${i===q.ans})">
+        <span class="opt-letter">${letters[i]}</span>${o}
+      </button>`).join('')}</div>`;
+  } else {
+    inner=`<input class="fill-input" id="mock-fill" placeholder="Type your answer…" onkeydown="if(event.key==='Enter')mockSubmit()">`;
+  }
+  document.getElementById('mock-q-area').innerHTML=`
+    <div class="q-card">
+      <div class="q-card-header">
+        <span class="q-tag">${topicName.toUpperCase()}</span>
+        <span class="q-num">Q${mockIdx+1}/25</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      ${inner}
+      <div class="explanation" id="mock-expl"><div class="expl-label">📚 Explanation</div>${q.explain||''}</div>
+    </div>`;
+}
+function mockCheckMCQ(el, correct) {
+  document.querySelectorAll('#mock-q-area .opt-btn').forEach(b=>b.disabled=true);
+  el.classList.add(correct?'correct':'wrong');
+  if(correct) mockScore++;
+  document.getElementById('mock-expl')?.classList.add('show');
+  document.getElementById('mock-score-live').textContent=mockScore;
+  setTimeout(()=>{ mockIdx++; renderMockQ(); }, 1200);
+}
+function mockSubmit() {
+  const inp=document.getElementById('mock-fill');
+  const q=mockQuestions[mockIdx];
+  if(!inp||!q) return;
+  const val=inp.value.trim().toLowerCase();
+  const ans=q.ans.toLowerCase();
+  const correct=val===ans||ans.includes(val)||val.includes(ans);
+  inp.classList.add(correct?'correct':'wrong');
+  inp.disabled=true;
+  if(correct) mockScore++;
+  document.getElementById('mock-expl')?.classList.add('show');
+  document.getElementById('mock-score-live').textContent=mockScore;
+  setTimeout(()=>{ mockIdx++; renderMockQ(); },1200);
+}
+function mockSkip(){ mockIdx++; renderMockQ(); }
+function mockEnd(){ clearInterval(mockTimer); mockShowResults(); }
+function mockShowResults() {
+  document.getElementById('mock-exam').style.display='none';
+  document.getElementById('mock-results').style.display='block';
+  const pct=Math.round((mockScore/25)*100);
+  const elapsed=Math.round((Date.now()-mockStartTime)/1000);
+  const mins=Math.floor(elapsed/60),secs=elapsed%60;
+  document.getElementById('mock-pct').textContent=pct+'%';
+  document.getElementById('mr-correct').textContent=mockScore;
+  document.getElementById('mr-wrong').textContent=25-mockScore;
+  document.getElementById('mr-time').textContent=mins+'m '+secs+'s';
+  let grade,colour,msg;
+  if(pct>=85){grade='A';colour='var(--accent)';msg='Outstanding! 🎉';}
+  else if(pct>=70){grade='B';colour='var(--accent4)';msg='Well done! 👏';}
+  else if(pct>=60){grade='C';colour='var(--accent3)';msg='Good effort! 😊';}
+  else if(pct>=45){grade='D';colour='#ff9f43';msg='Keep revising! 📚';}
+  else{grade='No Award';colour='var(--accent2)';msg="Don't give up! 💪";}
+  const g=document.getElementById('mock-grade');
+  g.textContent='Grade '+grade; g.style.background=colour+'22';
+  g.style.color=colour; g.style.border=`1px solid ${colour}44`;
+  document.getElementById('mock-msg').textContent=msg;
+  const circ=2*Math.PI*54, offset=circ-(pct/100)*circ;
+  const ring=document.getElementById('mock-ring');
+  ring.style.strokeDasharray=circ; ring.style.stroke=colour;
+  ring.style.strokeDashoffset=circ;
+  setTimeout(()=>{ ring.style.transition='stroke-dashoffset 1s ease'; ring.style.strokeDashoffset=offset; },100);
+}
+function restartMock(){ startMock(mockPaperType); }
+
+// ── WORKSHEET ENGINE ──
+function wsSwitchSheet(idx) {
+  wsSheet=idx;
+  document.querySelectorAll('.ws-tab').forEach((t,i)=>t.classList.toggle('wta',i===idx));
+  document.querySelectorAll('.ws-sheet2').forEach((s,i)=>{ s.classList.remove('wsa'); if(i===idx) s.classList.add('wsa'); });
+  updateWsStrip();
+}
+function wsMCQ(qid, el, correct) {
+  const q=document.getElementById(qid);
+  if(q.dataset.done==='1') return;
+  q.dataset.done='1';
+  q.querySelectorAll('.ws-opt2').forEach(o=>{o.disabled=true;o.onclick=null;});
+  el.classList.add(correct?'wc':'ww');
+  document.getElementById(qid+'-r')?.classList.add('show');
+  q.classList.add(correct?'ok':'bad');
+  wsRecord(correct);
+}
+function wsEq(qid, ids, answers) {
+  const q=document.getElementById(qid);
+  if(q.dataset.done==='1') return;
+  let allOk=true;
+  ids.forEach((id,i)=>{
+    const inp=document.getElementById(id);
+    if(!inp) return;
+    const v=inp.value.trim().toLowerCase().replace(/[^a-z0-9\- ]/g,'');
+    const a=answers[i].toLowerCase().replace(/[^a-z0-9\- ]/g,'');
+    const ok=v===a||v.includes(a)||a.includes(v)||(v.length>2&&(a.startsWith(v)||v.startsWith(a)));
+    inp.classList.add(ok?'ec':'ew'); inp.disabled=true;
+    if(!ok) allOk=false;
+  });
+  q.dataset.done='1';
+  q.classList.add(allOk?'ok':'bad');
+  document.getElementById(qid+'-r')?.classList.add('show');
+  q.querySelector('.ws-check').disabled=true;
+  wsRecord(allOk);
+}
+function wsPunnett(qid, ids, answers) {
+  const q=document.getElementById(qid);
+  if(q.dataset.done==='1') return;
+  let allOk=true;
+  ids.forEach((id,i)=>{
+    const inp=document.getElementById(id);
+    if(!inp) return;
+    const ok=inp.value.trim().toUpperCase()===answers[i];
+    const cell=inp.closest('.pun-cell');
+    if(cell) cell.classList.add(ok?'pc':'pw');
+    inp.disabled=true;
+    if(!ok){ allOk=false; inp.value=answers[i]; }
+  });
+  q.dataset.done='1';
+  q.classList.add(allOk?'ok':'bad');
+  document.getElementById(qid+'-r')?.classList.add('show');
+  q.querySelector('.ws-check').disabled=true;
+  wsRecord(allOk);
+}
+function wsReveal(qid) {
+  const q=document.getElementById(qid);
+  if(q.dataset.done==='1') return;
+  q.dataset.done='1';
+  const ta=document.getElementById(qid+'-ta');
+  if(ta){ ta.disabled=true; ta.classList.add(ta.value.trim().length>10?'ec':'ew'); }
+  document.getElementById(qid+'-r')?.classList.add('show');
+  q.querySelector('.ws-check').disabled=true;
+  q.classList.add('ok');
+  wsRecord(true);
+}
+function wsRecord(ok) {
+  wsScores[wsSheet].t++;
+  if(ok) wsScores[wsSheet].c++;
+  updateWsStrip();
+}
+function updateWsStrip() {
+  const s=wsScores[wsSheet];
+  const strip=document.getElementById('ws-score-strip');
+  if(s.t===0){ strip.style.display='none'; return; }
+  strip.style.display='flex';
+  const pct=Math.round((s.c/s.t)*100);
+  document.getElementById('ws-score-num').textContent=s.c+'/'+s.t;
+  document.getElementById('ws-score-fill2').style.width=pct+'%';
+  const msg=pct>=80?'🌟 Excellent! On track for an A/B!':pct>=60?'👍 Good — review what you missed':'📚 Keep revising — read the model answers';
+  document.getElementById('ws-score-msg').textContent=msg;
+}
+function wsMarkAll(idx) {
+  const prev=wsSheet; wsSheet=idx;
+  WS_IDS[idx].forEach(qid=>{
+    const q=document.getElementById(qid);
+    if(!q||q.dataset.done==='1') return;
+    document.getElementById(qid+'-r')?.classList.add('show');
+    q.querySelectorAll('.eq-in').forEach(i=>{ if(!i.disabled){i.disabled=true;i.classList.add('ew');} });
+    q.querySelectorAll('.pun-in').forEach(i=>{ if(!i.disabled){i.disabled=true;i.closest('.pun-cell')?.classList.add('pw');} });
+    q.querySelectorAll('.ws-ta').forEach(ta=>{ if(!ta.disabled){ta.disabled=true;ta.classList.add('ew');} });
+    q.dataset.done='1'; q.classList.add('bad');
+    q.querySelectorAll('.ws-check').forEach(b=>b.disabled=true);
+    wsRecord(false);
+  });
+  wsSheet=prev; updateWsStrip();
+}
+function wsReset2(idx) {
+  wsScores[idx]={c:0,t:0};
+  WS_IDS[idx].forEach(qid=>{
+    const q=document.getElementById(qid);
+    if(!q) return;
+    q.dataset.done='0'; q.className='ws-q';
+    document.getElementById(qid+'-r')?.classList.remove('show');
+    q.querySelectorAll('.ws-opt2').forEach(o=>{ o.classList.remove('wc','ww'); o.disabled=false; });
+    q.querySelectorAll('.eq-in').forEach(i=>{ i.value=''; i.disabled=false; i.classList.remove('ec','ew'); });
+    q.querySelectorAll('.pun-in').forEach(i=>{ i.value=''; i.disabled=false; i.closest('.pun-cell')?.classList.remove('pc','pw'); });
+    q.querySelectorAll('.ws-ta').forEach(ta=>{ ta.disabled=false; ta.classList.remove('ec','ew'); });
+    q.querySelectorAll('.ws-check').forEach(b=>b.disabled=false);
+  });
+  if(wsSheet===idx) updateWsStrip();
+}
+
+// ── TOPICS PAGE ──
+function renderTopicPage() {
+  const g=document.getElementById('topic-grid-page');
+  g.innerHTML='';
+  TOPICS.forEach(t=>{
+    const qs=QUESTIONS.filter(q=>q.topic===t.id).length;
+    const st=topicStats[t.id]||{a:0,c:0};
+    const pct=st.a>0?Math.round((st.c/st.a)*100):0;
+    const div=document.createElement('div');
+    div.className='topic-card sel';
+    div.innerHTML=`<div class="topic-icon">${t.icon}</div>
+      <div class="topic-name">${t.name}</div>
+      <div class="topic-count">${qs} questions</div>
+      <div class="topic-sub-text">${t.sub||''}</div>
+      <div class="topic-prog"><div class="topic-prog-fill" style="width:${pct}%"></div></div>`;
+    div.onclick=()=>{
+      document.getElementById('topic-sel').value=t.id;
+      nav('practice');
+      newQuestion();
+    };
+    g.appendChild(div);
+  });
+}
+
+// ── PROGRESS ──
+function renderProgress() {
+  document.getElementById('ps-total').textContent=totalAnswered;
+  document.getElementById('ps-correct').textContent=totalCorrect;
+  document.getElementById('ps-streak').textContent=bestStreak;
+  document.getElementById('ps-xp').textContent=xp;
+  const rows=document.getElementById('topic-prog-rows');
+  rows.innerHTML='';
+  TOPICS.forEach(t=>{
+    const st=topicStats[t.id]||{a:0,c:0};
+    const pct=st.a>0?Math.round((st.c/st.a)*100):0;
+    rows.innerHTML+=`<div class="prog-topic-row">
+      <div class="prog-topic-name">${t.icon} ${t.name}</div>
+      <div class="prog-topic-bar-wrap">
+        <div class="prog-topic-bar"><div class="prog-topic-fill" style="width:${pct}%"></div></div>
+      </div>
+      <div class="prog-topic-pct">${st.a>0?pct+'%':'—'}</div>
+    </div>`;
+  });
+}
+function resetAllProgress() {
+  if(!confirm('Reset all progress? This cannot be undone.')) return;
+  xp=0;level=1;streak=0;bestStreak=0;totalAnswered=0;totalCorrect=0;
+  topicStats={understanding:{a:0,c:0},marketing:{a:0,c:0},operations:{a:0,c:0},people:{a:0,c:0},finance:{a:0,c:0}};
+  dailyDone=0;
+  saveState(); updateTopbar(); updateGoal(0); renderProgress();
+}
+
+// ── SETTINGS ──
+function saveSettings() {
+  const name=document.getElementById('set-name').value.trim();
+  dailyGoal=parseInt(document.getElementById('set-goal').value)||10;
+  if(name) {
+    document.querySelector('.topbar-logo').innerHTML=`🏴󠁧󠁢󠁳󠁣󠁴󠁿 ${name}'s <span>Bio</span>`;
+  }
+  saveState();
+  const btn=document.querySelector('#page-settings .btn-green');
+  btn.textContent='✅ Saved!';
+  setTimeout(()=>btn.textContent='💾 Save',1500);
+}
+
+// ── UTILS ──
+function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+// ── INIT ──
+updateTopbar();
+updateGoal(0);
+newQuestion();
+</script>
+</body>
+</html>  <div class="section-title">📚 Key Facts & Key Terms</div>
+  <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px">Essential knowledge for the SQA exam — learn these!</p>
+
+  <div class="formula-section">
+    <h3>🏢 Understanding Business</h3>
+    <div class="formula-cards">
+      <div class="formula-card"><div class="formula-name">Sectors of Industry</div><div class="formula-val">Primary: extracting raw materials (farming, mining)<br>Secondary: manufacturing/making products<br>Tertiary: providing services (retail, banking)</div></div>
+      <div class="formula-card"><div class="formula-name">Sectors of Economy</div><div class="formula-val">Private sector: profit-driven, privately owned<br>Public sector: government-owned, provides services<br>Third sector: charities, social enterprises, voluntary orgs</div></div>
+      <div class="formula-card"><div class="formula-name">Types of Business Organisation</div><div class="formula-val">Sole trader: 1 owner, unlimited liability, keeps all profit<br>Partnership: 2–20 owners, shared profit/loss, usually unlimited liability<br>Private Ltd (Ltd): limited liability, shares sold privately<br>Public Ltd (PLC): listed on stock exchange, limited liability</div></div>
+      <div class="formula-card"><div class="formula-name">PESTEC External Factors</div><div class="formula-val">Political · Environmental · Social · Technological · Economic · Competitive</div></div>
+      <div class="formula-card"><div class="formula-name">Stakeholders</div><div class="formula-val">Owners, employees, customers, suppliers, banks, local community, government</div></div>
+      <div class="formula-card"><div class="formula-name">Business Objectives</div><div class="formula-val">Profit · Market share · Customer satisfaction · Social responsibility · Survival · Innovation</div></div>
+    </div>
+  </div>
+
+  <div class="formula-section">
+    <h3>📣 Management of Marketing</h3>
+    <div class="formula-cards">
+      <div class="formula-card"><div class="formula-name">Marketing Mix — 4 Ps</div><div class="formula-val">Product · Price · Place · Promotion</div></div>
+      <div class="formula-card"><div class="formula-name">Product Life Cycle</div><div class="formula-val">R&D → Introduction → Growth → Maturity → Decline<br>Extension strategies used at Maturity to delay Decline</div></div>
+      <div class="formula-card"><div class="formula-name">Market Research Types</div><div class="formula-val">Field (primary): new data — surveys, interviews, focus groups<br>Desk (secondary): existing data — internet, sales records, reports</div></div>
+      <div class="formula-card"><div class="formula-name">Pricing Strategies</div><div class="formula-val">Price skimming: high then reduce &nbsp;|&nbsp; Penetration: low to gain share<br>Competitive: match rivals &nbsp;|&nbsp; Cost-plus: costs + % markup<br>Premium: high price for luxury/status</div></div>
+      <div class="formula-card"><div class="formula-name">Promotion Types</div><div class="formula-val">Above-the-line: TV, radio, national press (mass audience)<br>Below-the-line: direct mail, social media, loyalty schemes (targeted)</div></div>
+    </div>
+  </div>
+
+  <div class="formula-section">
+    <h3>⚙️ Management of Operations</h3>
+    <div class="formula-cards">
+      <div class="formula-card"><div class="formula-name">Methods of Production</div><div class="formula-val">Job: one unique product at a time (bespoke, high quality, expensive)<br>Batch: groups of similar products made together<br>Flow (mass): continuous production of identical products (efficient, low unit cost)</div></div>
+      <div class="formula-card"><div class="formula-name">Quality</div><div class="formula-val">Quality control: inspect at END of process<br>Quality assurance: check THROUGHOUT process (proactive)<br>Quality inputs: use high-quality raw materials from the start</div></div>
+      <div class="formula-card"><div class="formula-name">Inventory Management</div><div class="formula-val">Overstocking: wasted cash, storage costs, risk of obsolescence<br>Understocking: lost sales, disappointed customers, halted production</div></div>
+    </div>
+  </div>
+
+  <div class="formula-section">
+    <h3>👥 Management of People</h3>
+    <div class="formula-cards">
+      <div class="formula-card"><div class="formula-name">Recruitment Documents</div><div class="formula-val">Job description: duties, responsibilities, pay<br>Person specification: qualifications, skills, experience required</div></div>
+      <div class="formula-card"><div class="formula-name">Types of Training</div><div class="formula-val">Induction: for new employees — policies, H&S, role<br>On-the-job: at workplace, by experienced colleague<br>Off-the-job: at college/training centre, specialist</div></div>
+      <div class="formula-card"><div class="formula-name">Maslow's Hierarchy of Needs</div><div class="formula-val">(1) Physiological (pay) → (2) Safety (job security) → (3) Social (teamwork) → (4) Esteem (recognition) → (5) Self-actualisation (full potential)</div></div>
+      <div class="formula-card"><div class="formula-name">Payment Systems</div><div class="formula-val">Salary: fixed annual pay (monthly) &nbsp;|&nbsp; Wages: per hour<br>Commission: % of sales &nbsp;|&nbsp; Piece rate: per item produced<br>Bonus: extra payment for performance</div></div>
+      <div class="formula-card"><div class="formula-name">Key Legislation</div><div class="formula-val">Equality Act 2010: protects against discrimination (age, gender, race, disability, religion etc.)<br>Health & Safety at Work Act 1974: safe working environment</div></div>
+    </div>
+  </div>
+
+  <div class="formula-section">
+    <h3>💰 Management of Finance</h3>
+    <div class="formula-cards">
+      <div class="formula-card"><div class="formula-name">Break-Even Formula</div><div class="formula-val">Break-even (units) = Fixed Costs ÷ (Selling Price − Variable Cost per unit)<br>Contribution per unit = Selling Price − Variable Cost per unit<br>Margin of Safety = Actual Sales − Break-even Sales</div></div>
+      <div class="formula-card"><div class="formula-name">Income Statement Structure</div><div class="formula-val">Sales Revenue<br>− Cost of Sales<br>= Gross Profit<br>− Expenses (overheads)<br>= Net Profit (or Loss) for the year</div></div>
+      <div class="formula-card"><div class="formula-name">Types of Costs</div><div class="formula-val">Fixed costs: unchanged by output (rent, insurance, management salaries)<br>Variable costs: change with output (raw materials, packaging, direct labour)</div></div>
+      <div class="formula-card"><div class="formula-name">Sources of Finance</div><div class="formula-val">Internal: retained profit, owner's savings, selling assets<br>External: bank loan, overdraft, mortgage, share issue, venture capital, grants</div></div>
+      <div class="formula-card"><div class="formula-name">Cash Flow Issues & Solutions</div><div class="formula-val">Problem: more cash going out than coming in (negative cash flow)<br>Solutions: arrange overdraft, chase debtors, delay payments, cut costs, increase sales</div></div>
+    </div>
+  </div>
+
+
+
+<!-- ═══════════════ PROGRESS PAGE
+
+<!-- ═══════════════ PROGRESS PAGE ═══════════════ -->
+<div class="page" id="page-progress">
+  <div class="section-title">📊 Your Progress</div>
+  <div class="prog-stat-grid">
+    <div class="prog-stat"><div class="prog-stat-val" id="ps-total">0</div><div class="prog-stat-key">ANSWERED</div></div>
+    <div class="prog-stat"><div class="prog-stat-val" id="ps-correct">0</div><div class="prog-stat-key">CORRECT</div></div>
+    <div class="prog-stat"><div class="prog-stat-val" id="ps-streak">0</div><div class="prog-stat-key">BEST STREAK</div></div>
+    <div class="prog-stat"><div class="prog-stat-val" id="ps-xp">0</div><div class="prog-stat-key">TOTAL XP</div></div>
+  </div>
+  <div class="section-label" style="margin-bottom:10px">Topic Accuracy</div>
+  <div id="topic-prog-rows"></div>
+  <button class="btn btn-red" onclick="resetAllProgress()" style="margin-top:16px;width:100%">🔄 Reset All Progress</button>
+</div>
+
+<!-- ═══════════════ LINKS PAGE ═══════════════ -->
+<div class="page" id="page-links">
+  <div class="section-title">🔗 Helpful Links</div>
+  <div class="links-grid">
+    <a class="link-card" href="https://www.sqa.org.uk/sqa/47436.html" target="_blank" rel="noopener">
+      <div class="link-icon">🏛</div>
+      <div><div class="link-title">SQA — Nat 5 Business Management</div><div class="link-desc">Official past papers, marking schemes & course spec</div></div>
+    </a>
+    <a class="link-card" href="https://www.bbc.co.uk/bitesize/subjects/zpsvr82" target="_blank" rel="noopener">
+      <div class="link-icon">📺</div>
+      <div><div class="link-title">BBC Bitesize — Nat 5 Business</div><div class="link-desc">Videos, notes and revision for every topic</div></div>
+    </a>
+    <a class="link-card" href="https://scholar.hw.ac.uk" target="_blank" rel="noopener">
+      <div class="link-icon">🎓</div>
+      <div><div class="link-title">SCHOLAR (Heriot-Watt)</div><div class="link-desc">Detailed online course for Scottish Nat 5 Business</div></div>
+    </a>
+    <a class="link-card" href="https://www.understandingstandards.org.uk/Subjects/BusinessManagement" target="_blank" rel="noopener">
+      <div class="link-icon">📖</div>
+      <div><div class="link-title">Understanding Standards</div><div class="link-desc">SQA exemplar answers and marking guidance</div></div>
+    </a>
+    <a class="link-card" href="https://businessmgmt.co.uk" target="_blank" rel="noopener">
+      <div class="link-icon">💼</div>
+      <div><div class="link-title">Business Management Resources</div><div class="link-desc">Notes, revision sheets and practice questions</div></div>
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════ SETTINGS PAGE ═══════════════ -->
+<div class="page" id="page-settings">
+  <div class="section-title">⚙️ Settings</div>
+  <div class="settings-card">
+    <h3>Your Profile</h3>
+    <div class="setting-row">
+      <span class="setting-label">Your name</span>
+      <input class="setting-input" id="set-name" placeholder="e.g. Eilidh" style="flex:1">
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">Daily question goal</span>
+      <select class="setting-input" id="set-goal">
+        <option value="5">5 questions</option>
+        <option value="10" selected>10 questions</option>
+        <option value="20">20 questions</option>
+        <option value="30">30 questions</option>
+      </select>
+    </div>
+    <button class="btn btn-green" onclick="saveSettings()" style="margin-top:10px;border:none">💾 Save</button>
+  </div>
+  <div class="settings-card">
+    <h3>ℹ️ About</h3>
+    <p style="font-size:0.82rem;line-height:1.6;color:var(--muted)">
+      Covers all five SQA Nat 5 Business Management areas: Understanding Business, Management of Marketing, Operations, People, and Finance.<br><br>
+      ✅ Verified against SQA Course Spec <strong>C810 75</strong> (valid from 2024–25, confirmed current 2025–26).<br><br>
+      120+ practice questions · Interactive worksheets · Mock exam · Key facts reference · XP levelling system.<br><br>
+      Progress saves automatically in your browser.
+    </p>
+  </div>
+</div>
+
+<script>
+// ✅ SQA Nat 5 Business Management Course Spec C810 75 (valid from 2024-25, current 2025-26)
+// Five official SQA areas of study: Understanding Business | Management of Marketing |
+// Management of Operations | Management of People | Management of Finance
+const TOPICS = [
+  { id: 'understanding', name: 'Understanding Business', icon: '🏢', sub: 'Role of business · Types of organisations · Objectives · External factors · Stakeholders' },
+  { id: 'marketing',     name: 'Management of Marketing', icon: '📣', sub: 'Market research · Marketing mix · Product life cycle · Pricing · Promotion · Place' },
+  { id: 'operations',   name: 'Management of Operations', icon: '⚙️', sub: 'Suppliers · Inventory · Methods of production · Quality · Ethical & environmental' },
+  { id: 'people',       name: 'Management of People', icon: '👥', sub: 'Recruitment · Selection · Training · Motivation · Legislation · Technology' },
+  { id: 'finance',      name: 'Management of Finance', icon: '💰', sub: 'Sources of finance · Break-even · Cash budgeting · Income statement · Technology' },
+];
+
+const QUESTIONS = [
+  // ══════════════════════════════════════════════════════
+  // UNDERSTANDING BUSINESS (25 questions)
+  // ══════════════════════════════════════════════════════
+  {topic:'understanding',type:'mcq',q:'Which sector of industry involves extracting raw materials from the earth, such as mining or farming?',
+    opts:['Secondary sector','Tertiary sector','Primary sector','Public sector'],
+    ans:2,explain:'The primary sector extracts raw materials directly from nature (farming, fishing, mining, forestry). Secondary = manufacturing. Tertiary = services.'},
+  {topic:'understanding',type:'mcq',q:'A business that is owned and run by one person who keeps all the profits but has unlimited liability is called a:',
+    opts:['Private limited company','Partnership','Sole trader','Social enterprise'],
+    ans:2,explain:'A sole trader is the simplest business structure — one owner, all profits kept, but unlimited liability means personal assets can be seized to pay business debts.'},
+  {topic:'understanding',type:'mcq',q:'What does "unlimited liability" mean for a sole trader or partner?',
+    opts:['They cannot lose more than they invested','The owner is personally responsible for ALL business debts — even using personal assets','They share losses equally with the government','They are protected by law from paying debts'],
+    ans:1,explain:'Unlimited liability means if the business cannot pay its debts, the owner\'s personal assets (house, car, savings) can be taken to pay them. This is a major disadvantage of sole traders and partnerships.'},
+  {topic:'understanding',type:'mcq',q:'Which type of organisation is owned by shareholders, has limited liability, but cannot sell shares to the general public?',
+    opts:['Public limited company (PLC)','Sole trader','Private limited company (Ltd)','Partnership'],
+    ans:2,explain:'A private limited company (Ltd) has limited liability for shareholders, but shares can only be sold privately (not on the stock exchange). E.g. a small family business incorporated as Ltd.'},
+  {topic:'understanding',type:'mcq',q:'What does PESTEC stand for in business external factors?',
+    opts:['Product, Enterprise, Sales, Technology, Environment, Competition','Political, Environmental, Social, Technological, Economic, Competitive','Profit, Expenses, Stock, Trade, Equity, Cost','People, Ethics, Supply, Trade, Economics, Communication'],
+    ans:1,explain:'PESTEC = Political, Environmental, Social, Technological, Economic, Competitive. These are the external factors (outside the business) that affect how it operates.'},
+  {topic:'understanding',type:'mcq',q:'Which of the following is an INTERNAL factor that can affect a business?',
+    opts:['A change in government tax rates','A new competitor entering the market','The business having insufficient finance','An increase in the rate of inflation'],
+    ans:2,explain:'Internal factors come from within the business: finance, human resources, technology. External factors (PESTEC) come from outside: taxes, competitors, inflation.'},
+  {topic:'understanding',type:'mcq',q:'What is the PRIMARY objective of most private sector businesses?',
+    opts:['To provide a public service','To maximise profit','To achieve social goals','To employ as many people as possible'],
+    ans:1,explain:'Private sector businesses primarily aim to make profit for their owners/shareholders. Public sector organisations aim to provide services. Third sector (social enterprises, charities) have social objectives.'},
+  {topic:'understanding',type:'mcq',q:'A "stakeholder" in a business is:',
+    opts:['Only the shareholders who own shares','Any person or group with an interest in or affected by the business','Only the managers and directors','Only the customers who buy products'],
+    ans:1,explain:'Stakeholders include: owners/shareholders, employees, customers, suppliers, banks, the local community, and the government. They all have different interests in how the business performs.'},
+  {topic:'understanding',type:'mcq',q:'Which type of business organisation is owned by its members or customers and reinvests profits for social benefit?',
+    opts:['Private limited company','Public limited company','Social enterprise','Partnership'],
+    ans:2,explain:'A social enterprise trades to achieve social/environmental goals. Profits are reinvested in the community or the mission, not distributed to private shareholders. E.g. The Big Issue, Divine Chocolate.'},
+  {topic:'understanding',type:'mcq',q:'What is a business plan PRIMARILY used for?',
+    opts:['To track daily sales','To outline the business idea, objectives, and financial projections — often to secure finance','To advertise products to customers','To record employee performance'],
+    ans:1,explain:'A business plan sets out: the business idea, target market, marketing strategy, operational plan, and financial forecasts (costs, revenue, break-even). Banks and investors require it before lending money.'},
+  {topic:'understanding',type:'mcq',q:'Which sector of the economy includes the NHS, police, and state schools?',
+    opts:['Private sector','Third sector','Public sector','Primary sector'],
+    ans:2,explain:'The public sector is owned and funded by the government. It provides essential public services (health, education, police, roads). The private sector is profit-driven and privately owned.'},
+  {topic:'understanding',type:'mcq',q:'A PARTNERSHIP is best described as:',
+    opts:['A business owned by the government','A business owned by 2–20 people who share profits, losses and usually have unlimited liability','A business with shares listed on the stock exchange','A business owned solely by one person'],
+    ans:1,explain:'A partnership has 2–20 partners who share profits, decision-making, and responsibilities. Most have unlimited liability (except limited partnerships). A Deed of Partnership sets out the terms.'},
+  {topic:'understanding',type:'mcq',q:'What is "market share"?',
+    opts:['The total value of all products sold in a market','The percentage of total market sales held by one business','The number of customers a business has','The profit made from selling in a market'],
+    ans:1,explain:'Market share = (business\'s sales ÷ total market sales) × 100. A business with 30% market share sells 30% of all products in that market. Increasing market share is a common business objective.'},
+  {topic:'understanding',type:'mcq',q:'Which of the following is an example of a COMPETITIVE external factor?',
+    opts:['A rise in the National Minimum Wage','A new business opening selling the same products','A change in government legislation','An increase in consumer spending'],
+    ans:1,explain:'Competitive factors include new competitors, rivals\' pricing, new products from competitors. These affect a business\'s ability to attract and retain customers.'},
+  {topic:'understanding',type:'mcq',q:'The "factors of production" are:',
+    opts:['Land, Labour, Capital, Enterprise','Product, Price, Place, Promotion','Revenue, Costs, Profit, Loss','Shareholders, Directors, Managers, Workers'],
+    ans:0,explain:'The four factors of production: Land (natural resources), Labour (workers), Capital (machinery/equipment/money), Enterprise (the entrepreneur who combines the other factors). All needed to produce goods/services.'},
+  {topic:'understanding',type:'fillin',q:'A business where shareholders\' personal assets are protected if the company goes into debt is said to have _____ liability.',ans:'limited',explain:'Limited liability means shareholders only risk losing the money they invested in shares — their personal assets are protected. This encourages investment in companies.'},
+  {topic:'understanding',type:'fillin',q:'The sector of the economy containing charities, voluntary organisations, and social enterprises is called the _____ sector.',ans:'third',explain:'The third sector (also called the voluntary or not-for-profit sector) includes charities, social enterprises, and voluntary organisations. They have social objectives rather than profit objectives.'},
+  {topic:'understanding',type:'fillin',q:'The external factors that affect a business can be remembered using the acronym _____.',ans:'PESTEC',explain:'PESTEC = Political, Environmental, Social, Technological, Economic, Competitive. These factors are outside the business\'s control but significantly affect its operations and decisions.'},
+  {topic:'understanding',type:'fillin',q:'A new business should prepare a _____ plan before starting, showing its goals, strategy, and financial projections.',ans:'business',explain:'A business plan is essential for new businesses — it helps secure bank loans or investment, keeps the entrepreneur focused, and identifies potential problems before they occur.'},
+
+  // ══════════════════════════════════════════════════════
+  // MANAGEMENT OF MARKETING (25 questions)
+  // ══════════════════════════════════════════════════════
+  {topic:'marketing',type:'mcq',q:'What are the four elements of the MARKETING MIX (the 4 Ps)?',
+    opts:['Product, Profit, Place, Promotion','Product, Price, Place, Promotion','People, Price, Planning, Promotion','Product, Price, People, Packaging'],
+    ans:1,explain:'The marketing mix (4 Ps): Product (what you sell), Price (what you charge), Place (where you sell), Promotion (how you communicate). All four must work together to satisfy customer needs.'},
+  {topic:'marketing',type:'mcq',q:'FIELD research involves:',
+    opts:['Collecting existing data from published sources such as the internet','Collecting NEW data first-hand through surveys, interviews or focus groups','Analysing competitors\' sales figures','Reading industry reports and government statistics'],
+    ans:1,explain:'Field research (primary research) collects new data directly: surveys, questionnaires, interviews, focus groups, observation. It\'s specific to your needs but expensive and time-consuming.'},
+  {topic:'marketing',type:'mcq',q:'DESK research involves:',
+    opts:['Conducting surveys with customers','Gathering new data through personal interviews','Using existing data already collected, such as sales records, internet, newspapers','Setting up focus groups'],
+    ans:2,explain:'Desk research (secondary research) uses existing data: company sales records, internet, newspapers, government statistics, trade magazines. It\'s cheaper and quicker but may not be specific to your needs.'},
+  {topic:'marketing',type:'mcq',q:'The stage of the Product Life Cycle where sales grow rapidly and profits begin to rise is called:',
+    opts:['Research and Development','Introduction','Growth','Maturity'],
+    ans:2,explain:'Product Life Cycle stages: R&D (costly, no sales) → Introduction (low sales, high costs) → Growth (sales rise rapidly, profits begin) → Maturity (peak sales) → Decline (falling sales). Understanding this helps marketing decisions.'},
+  {topic:'marketing',type:'mcq',q:'Which pricing strategy involves setting a HIGH initial price for a new product, then lowering it over time?',
+    opts:['Penetration pricing','Competitive pricing','Price skimming','Cost-plus pricing'],
+    ans:2,explain:'Price skimming: high initial price targets early adopters (who will pay more), then price drops to attract more customers. Used for new technology (e.g. new iPhone). Contrast with penetration pricing (low price to gain market share quickly).'},
+  {topic:'marketing',type:'mcq',q:'Which pricing strategy involves setting a LOWER price than competitors to gain market share quickly?',
+    opts:['Price skimming','Penetration pricing','Premium pricing','Cost-plus pricing'],
+    ans:1,explain:'Penetration pricing: low initial price attracts customers quickly and builds market share. Once established, prices may rise. Used by streaming services (e.g. low intro offers). Disadvantage: low profit margins initially.'},
+  {topic:'marketing',type:'mcq',q:'What is BRANDING?',
+    opts:['The physical label on a product','Creating a unique name, logo, and image that distinguishes a product from competitors','Setting the price of a product','Deciding where to sell a product'],
+    ans:1,explain:'Branding creates a distinctive identity: name, logo, colours, tagline. Strong brands build customer loyalty, allow premium pricing, and make products instantly recognisable (e.g. Nike\'s swoosh, Apple\'s logo).'},
+  {topic:'marketing',type:'mcq',q:'A "target market" is:',
+    opts:['The maximum number of products a business wants to sell','The specific group of customers a business aims its marketing at','The geographic area where a business operates','The total number of customers in a market'],
+    ans:1,explain:'A target market is the specific segment of customers a business focuses on. Markets can be segmented by age, income, gender, location, lifestyle, etc. Targeting allows more focused, effective marketing.'},
+  {topic:'marketing',type:'mcq',q:'Which of the following is an example of ABOVE-THE-LINE promotion?',
+    opts:['A salesperson calling customers directly','Sponsoring a local sports team','A TV advertisement','Sending loyalty discount vouchers to existing customers'],
+    ans:2,explain:'Above-the-line promotion uses mass media: TV, radio, newspapers, billboards, cinema. It reaches a wide audience. Below-the-line uses targeted methods: direct mail, social media, loyalty schemes, sales promotions.'},
+  {topic:'marketing',type:'mcq',q:'What is the purpose of MARKET RESEARCH?',
+    opts:['To reduce production costs','To gather information about customers, competitors, and the market to make better business decisions','To train sales staff','To manage the supply chain'],
+    ans:1,explain:'Market research gathers data to understand: what customers want, who competitors are, market trends, and potential demand. This reduces the risk of launching products that fail. Costs must be balanced against benefits.'},
+  {topic:'marketing',type:'mcq',q:'The stage in the Product Life Cycle where the product is tested and developed before launch — with high costs and NO sales — is called:',
+    opts:['Introduction','Growth','Maturity','Research and Development (R&D)'],
+    ans:3,explain:'R&D (Research and Development): product is created and tested. Very high costs, no revenue yet. Many products never make it past this stage. Examples: developing a new drug, designing a new car model.'},
+  {topic:'marketing',type:'mcq',q:'Which distribution method involves selling directly from manufacturer to customer with NO intermediaries?',
+    opts:['Selling through a retailer','Selling through a wholesaler','Direct selling (e.g. online, factory shop)','Selling through an agent'],
+    ans:2,explain:'Direct distribution: manufacturer → customer (no middlemen). Examples: online stores (Amazon selling own products), farm shops, door-to-door. Benefits: higher profit margins, direct customer relationship. Drawback: less reach.'},
+  {topic:'marketing',type:'mcq',q:'A FOCUS GROUP is a type of:',
+    opts:['Desk research using published data','Field research where a small group discusses a product or issue in depth','Quantitative survey sent to thousands of people','Analysis of past sales data'],
+    ans:1,explain:'A focus group is qualitative field research: a small group (6–12 people) guided by a researcher to discuss products, ideas, or issues in depth. Provides detailed opinions but results may not be representative of the wider population.'},
+  {topic:'marketing',type:'mcq',q:'What is "ethical marketing"?',
+    opts:['Marketing that maximises profits at any cost','Marketing that is honest, fair, and does not mislead or exploit consumers','Marketing only to adults over 18','Marketing with the highest possible budget'],
+    ans:1,explain:'Ethical marketing ensures: honest advertising (no false claims), fair targeting (not exploiting vulnerable groups like children), transparent pricing, and socially responsible messages. The ASA (Advertising Standards Authority) regulates UK advertising.'},
+  {topic:'marketing',type:'mcq',q:'Technology has changed marketing. Which of the following is an example of how technology is used in marketing?',
+    opts:['Using paper catalogues only','Social media advertising, email campaigns, and online analytics to target customers','Relying on word of mouth only','Using TV ads from the 1970s'],
+    ans:1,explain:'Technology in marketing: social media (Facebook, Instagram ads), SEO (search engine optimisation), email marketing, online customer data analytics, e-commerce websites, influencer marketing. These allow targeted, measurable, and cost-effective campaigns.'},
+  {topic:'marketing',type:'fillin',q:'The four elements of the marketing mix are product, price, place and _____.',ans:'promotion',explain:'Promotion is how a business communicates with its target market: advertising, public relations, sales promotions, direct marketing, and social media. It aims to persuade customers to buy.'},
+  {topic:'marketing',type:'fillin',q:'Market research that uses existing data already collected by others is called _____ research.',ans:'desk',explain:'Desk (secondary) research uses existing information: sales records, internet searches, government reports, competitor analysis. It\'s cheaper and quicker than field (primary) research but may not be specific enough.'},
+  {topic:'marketing',type:'fillin',q:'The stage in the product life cycle where sales are at their peak and most competitors are in the market is called _____.',ans:'maturity',explain:'At maturity, sales peak and competition is highest. Businesses may use extension strategies (new packaging, new markets, new uses) to prolong this stage and delay decline.'},
+
+  // ══════════════════════════════════════════════════════
+  // MANAGEMENT OF OPERATIONS (20 questions)
+  // ══════════════════════════════════════════════════════
+  {topic:'operations',type:'mcq',q:'Which method of production makes ONE unique product at a time, tailored to a specific customer order?',
+    opts:['Flow production','Batch production','Job production','Mass production'],
+    ans:2,explain:'Job production: each product is made individually to order (e.g. a wedding cake, a bespoke suit, a bridge). High quality, flexible, but slow and expensive. Workers are often skilled craftspeople.'},
+  {topic:'operations',type:'mcq',q:'Which method of production makes GROUPS of identical products, then switches to a different product?',
+    opts:['Job production','Batch production','Flow production','Just-in-time production'],
+    ans:1,explain:'Batch production: groups (batches) of similar products are made together. E.g. a bakery makes 200 white loaves then switches to 200 brown loaves. More efficient than job but less flexible than flow.'},
+  {topic:'operations',type:'mcq',q:'Which method of production involves a continuous assembly line making large quantities of identical products?',
+    opts:['Job production','Batch production','Flow (mass) production','Seasonal production'],
+    ans:2,explain:'Flow (mass) production: continuous production line making identical products in large quantities (e.g. car manufacturing, bottling drinks). Very efficient and low unit cost, but high set-up costs and inflexible.'},
+  {topic:'operations',type:'mcq',q:'What is the main problem with OVERSTOCKING inventory?',
+    opts:['Not enough products to meet customer demand','Wasted storage space, increased costs, and risk of products expiring or becoming obsolete','Too many suppliers to manage','Reduced quality of products'],
+    ans:1,explain:'Overstocking: too much stock ties up cash, costs money to store, risks spoilage/obsolescence. Understocking: lose sales, disappoint customers, damage reputation. Effective inventory management avoids both extremes.'},
+  {topic:'operations',type:'mcq',q:'What is the main problem with UNDERSTOCKING inventory?',
+    opts:['Wasted storage space','High storage costs','Unable to meet customer demand — lost sales and damage to reputation','Products becoming out of date'],
+    ans:2,explain:'Understocking means a business cannot fulfil customer orders. Customers may go to competitors and may not return. In manufacturing, it can halt production lines, causing expensive downtime.'},
+  {topic:'operations',type:'mcq',q:'QUALITY CONTROL involves:',
+    opts:['Training employees in quality at every stage of production','Checking products at the END of the production process to identify defects','Ensuring ethical sourcing of materials','Using the best possible raw materials'],
+    ans:1,explain:'Quality control: inspection of finished products to identify and remove defects before they reach customers. Contrast with quality assurance (checking quality throughout the process, not just at the end).'},
+  {topic:'operations',type:'mcq',q:'QUALITY ASSURANCE involves:',
+    opts:['Checking products only after they are fully made','Building quality checks into every stage of the production process — prevention not inspection','Using the most expensive materials available','Hiring more quality inspectors'],
+    ans:1,explain:'Quality assurance is a proactive approach: quality is built in at every stage. Everyone is responsible for quality. This prevents defects rather than just detecting them. More effective but requires culture change.'},
+  {topic:'operations',type:'mcq',q:'Which of the following is a factor to consider when choosing a SUPPLIER?',
+    opts:['The colour of the supplier\'s logo','Price, quality, reliability, delivery time, and ethical practices','The supplier\'s advertising budget','Whether the supplier uses social media'],
+    ans:1,explain:'When choosing a supplier, consider: price (affects costs), quality (affects product quality), reliability (can they deliver on time?), lead time (how long to deliver?), ethical practices (fair trade, environmental standards).'},
+  {topic:'operations',type:'mcq',q:'Producing goods in an ETHICAL and ENVIRONMENTALLY FRIENDLY way might include:',
+    opts:['Using the cheapest possible materials regardless of source','Sourcing materials from fair trade suppliers, reducing waste, and using renewable energy','Maximising production regardless of environmental impact','Outsourcing all production to countries with no regulations'],
+    ans:1,explain:'Ethical and environmental production: fair trade sourcing, reducing carbon footprint, minimising waste, using renewable energy, ensuring safe working conditions in the supply chain. Increasingly important to consumers.'},
+  {topic:'operations',type:'mcq',q:'Which type of production would be MOST suitable for manufacturing cars?',
+    opts:['Job production','Batch production','Flow (mass) production','Handmade production'],
+    ans:2,explain:'Cars are produced in large quantities using automated assembly lines (flow production). Some luxury car makers (e.g. Rolls-Royce) use job production, but most mainstream manufacturers use flow production for efficiency.'},
+  {topic:'operations',type:'mcq',q:'Technology in operations management can include:',
+    opts:['Only hand tools and manual labour','CAD (computer-aided design), CAM (computer-aided manufacture), robots, and stock management software','Only spreadsheets for record keeping','Only telephone ordering systems'],
+    ans:1,explain:'Technology in operations: CAD designs products on computers; CAM manufactures using computers/robots; EPOS systems track inventory in real time; automated warehouse systems. These improve speed, accuracy, and reduce costs.'},
+  {topic:'operations',type:'fillin',q:'Making a product one at a time to a specific customer order is called _____ production.',ans:'job',explain:'Job production creates unique, customised products. Examples: bespoke tailoring, custom wedding cakes, shipbuilding, architectural design. High quality but expensive and time-consuming.'},
+  {topic:'operations',type:'fillin',q:'Checking product quality at the END of the production process to remove defects is called quality _____.',ans:'control',explain:'Quality control is reactive — it finds defects after they occur. Quality assurance is proactive — it prevents defects at every stage. Most modern businesses prefer quality assurance as it is less wasteful.'},
+
+  // ══════════════════════════════════════════════════════
+  // MANAGEMENT OF PEOPLE (20 questions)
+  // ══════════════════════════════════════════════════════
+  {topic:'people',type:'mcq',q:'What is the correct ORDER of the recruitment process?',
+    opts:['Interview → Advertise → Job description → Select','Job analysis → Job description → Person specification → Advertise → Applications → Shortlist → Interview → Select → Offer','Advertise → Hire → Train → Appraise','Select → Interview → Advertise → Apply'],
+    ans:1,explain:'Recruitment stages: Job analysis → Job description (duties) → Person specification (qualities needed) → Advertise → Receive applications → Shortlist → Interview → Select → Issue contract. Each stage filters candidates.'},
+  {topic:'people',type:'mcq',q:'A JOB DESCRIPTION contains:',
+    opts:['The qualities and skills the ideal applicant must have','The title, duties, responsibilities, and pay of a job','The training plan for a new employee','The reasons why an employee was dismissed'],
+    ans:1,explain:'A job description outlines: job title, department, main duties and responsibilities, working hours, pay/salary. Contrast with a person specification, which describes the ideal candidate\'s qualifications, skills, and experience.'},
+  {topic:'people',type:'mcq',q:'A PERSON SPECIFICATION describes:',
+    opts:['The duties and responsibilities of a job','The qualities, qualifications, skills, and experience required in the ideal candidate','The pay and working hours of a job','The training opportunities available'],
+    ans:1,explain:'A person specification lists what the ideal applicant should have: essential and desirable qualifications, skills, experience, and personal qualities. Used alongside the job description to shortlist candidates.'},
+  {topic:'people',type:'mcq',q:'Which type of training is delivered AWAY from the normal place of work, for example at a college or training centre?',
+    opts:['On-the-job training','Induction training','Off-the-job training','Appraisal training'],
+    ans:2,explain:'Off-the-job training: courses, workshops, or college programmes away from the workplace. Benefits: specialist training, no distractions from work. Drawbacks: expensive, employee not working while training.'},
+  {topic:'people',type:'mcq',q:'Which type of training is delivered WITHIN the workplace, often by a more experienced colleague?',
+    opts:['Off-the-job training','Induction training at college','On-the-job training','External training programme'],
+    ans:2,explain:'On-the-job training: learning while working, under guidance of an experienced colleague (e.g. shadowing, mentoring). Benefits: relevant, productive, cheaper. Drawbacks: may learn bad habits, can slow down the trainer.'},
+  {topic:'people',type:'mcq',q:'What is INDUCTION training?',
+    opts:['Advanced training for experienced managers','Training given to a NEW employee when they first join an organisation','Training to retrain employees in new technology','Training given when an employee is promoted'],
+    ans:1,explain:'Induction training introduces new employees to: company policies, health & safety, their role, colleagues, and the organisation\'s culture. Reduces early mistakes and helps new staff settle in quickly.'},
+  {topic:'people',type:'mcq',q:'Maslow\'s Hierarchy of Needs suggests that workers are motivated by:',
+    opts:['Only pay and financial rewards','A hierarchy from basic needs (pay, safety) up to higher needs (esteem, self-actualisation)','Only praise and recognition','Only job security'],
+    ans:1,explain:'Maslow\'s hierarchy: (1) Physiological (pay for food/shelter) → (2) Safety (job security) → (3) Social (teamwork, belonging) → (4) Esteem (recognition, status) → (5) Self-actualisation (reaching full potential). Lower needs must be met before higher ones motivate.'},
+  {topic:'people',type:'mcq',q:'Which payment system pays employees a fixed amount per year, divided into equal monthly payments?',
+    opts:['Wages (hourly pay)','Salary','Commission','Piece rate'],
+    ans:1,explain:'Salary: fixed annual payment (e.g. £25,000/year), paid monthly. Provides income certainty. Wages are paid per hour (flexible with hours worked). Commission is % of sales made. Piece rate is per item produced.'},
+  {topic:'people',type:'mcq',q:'What is INDUSTRIAL ACTION?',
+    opts:['When management introduces new machinery','Steps taken by employees (usually through a trade union) to put pressure on an employer, such as a strike or work-to-rule','When a business opens a new factory','Government intervention in a business dispute'],
+    ans:1,explain:'Industrial action: workers collectively pressure employers. Types: strike (refuse to work), work-to-rule (only do exactly what contract says), overtime ban (refuse extra hours), go-slow. Usually organised by trade unions.'},
+  {topic:'people',type:'mcq',q:'The EQUALITY ACT 2010 protects employees from discrimination based on:',
+    opts:['Only gender and race','Only age and disability','Protected characteristics including age, disability, gender, race, religion, sexual orientation, pregnancy, and more','Only religion and political beliefs'],
+    ans:2,explain:'The Equality Act 2010 protects against discrimination based on "protected characteristics": age, disability, gender reassignment, marriage, pregnancy/maternity, race, religion/belief, sex, and sexual orientation. Applies to hiring, pay, and working conditions.'},
+  {topic:'people',type:'mcq',q:'The HEALTH AND SAFETY AT WORK ACT 1974 requires employers to:',
+    opts:['Pay employees at least the National Minimum Wage','Provide a safe working environment, training, and equipment to protect employees\' health and safety','Give employees at least 28 days holiday per year','Ensure all employees have a written contract'],
+    ans:1,explain:'The Health and Safety at Work Act 1974: employers must provide safe premises, safe equipment, adequate training, and a safety policy. Employees must cooperate with safety procedures. HSE (Health and Safety Executive) enforces this.'},
+  {topic:'people',type:'mcq',q:'Technology used in human resource management might include:',
+    opts:['Only paper-based filing systems','HR software for payroll and records, video interviewing, online training platforms, and flexible working technology','Only face-to-face meetings','Only traditional noticeboards for job adverts'],
+    ans:1,explain:'Technology in HR: HR management systems (payroll, records, absence tracking), video interviews (Zoom, Teams), e-learning platforms, online job boards, flexible working tools. These improve efficiency and reduce admin costs.'},
+  {topic:'people',type:'fillin',q:'The document that describes the duties, responsibilities and pay associated with a job vacancy is called a job _____.',ans:'description',explain:'A job description is produced when a vacancy arises. It outlines: job title, department, main duties, responsibility level, pay, and reporting lines. Given to applicants alongside the person specification.'},
+  {topic:'people',type:'fillin',q:'Training given to new employees to help them understand the organisation, their role, and health & safety is called _____ training.',ans:'induction',explain:'Induction training is the first training new employees receive. It reduces mistakes, helps staff settle in, and ensures they understand key policies (especially health and safety) from day one.'},
+  {topic:'people',type:'fillin',q:'The motivational theory that suggests workers have a hierarchy of needs from basic pay up to self-fulfilment is called _____\'s Hierarchy of Needs.',ans:'Maslow',explain:'Abraham Maslow\'s Hierarchy of Needs (1943): physiological → safety → social → esteem → self-actualisation. Managers can use this to understand what motivates different employees at different stages of their career.'},
+
+  // ══════════════════════════════════════════════════════
+  // MANAGEMENT OF FINANCE (20 questions)
+  // ══════════════════════════════════════════════════════
+  {topic:'finance',type:'mcq',q:'What is a CASH FLOW STATEMENT?',
+    opts:['A record of all assets owned by a business','A forecast or record of money flowing INTO and OUT OF a business over a period of time','A list of all products sold by a business','A document showing the business\'s market share'],
+    ans:1,explain:'A cash flow statement shows money coming in (receipts: sales, loans) and money going out (payments: wages, rent, supplies). It helps identify when a business might run short of cash and plan accordingly.'},
+  {topic:'finance',type:'mcq',q:'GROSS PROFIT is calculated as:',
+    opts:['Sales revenue minus ALL expenses','Sales revenue minus cost of sales (cost of making/buying the goods)','Total revenue minus taxes','Sales revenue minus wages only'],
+    ans:1,explain:'Gross profit = Sales revenue − Cost of Sales (direct costs of making/buying the product). It shows profit before overheads (rent, wages, admin). Net profit (profit for the year) = Gross profit − Expenses.'},
+  {topic:'finance',type:'mcq',q:'The BREAK-EVEN POINT is where:',
+    opts:['A business makes its maximum profit','Total revenue equals total costs — the business makes neither profit nor loss','A business\'s costs exceed its revenue','A business achieves its sales target'],
+    ans:1,explain:'Break-even point: Total Revenue = Total Costs. Below this point the business makes a loss; above it makes a profit. Break-even = Fixed Costs ÷ (Selling Price − Variable Cost per unit). Essential for planning and pricing.'},
+  {topic:'finance',type:'mcq',q:'FIXED COSTS are:',
+    opts:['Costs that change directly with the level of production','Costs that stay the same regardless of output levels (e.g. rent, insurance, managers\' salaries)','Costs that only apply in the summer','Variable costs that can be controlled'],
+    ans:1,explain:'Fixed costs don\'t change with output: rent, insurance, management salaries, loan repayments. They must be paid even if nothing is produced. Variable costs change with output: raw materials, packaging, direct labour.'},
+  {topic:'finance',type:'mcq',q:'VARIABLE COSTS are:',
+    opts:['Costs that stay the same regardless of production levels','Costs that change directly with the level of output (e.g. raw materials, packaging, direct labour)','Costs that only apply in winter','The same as fixed costs'],
+    ans:1,explain:'Variable costs change in proportion to output: more production = higher variable costs. Examples: raw materials, packaging, direct labour paid per item. Total costs = Fixed costs + Variable costs.'},
+  {topic:'finance',type:'mcq',q:'Which of the following is an INTERNAL source of finance?',
+    opts:['Bank loan','Share issue','Retained profits (profits kept in the business rather than paid out)','Mortgage'],
+    ans:2,explain:'Internal sources: retained profit (reinvesting business profits), selling assets, owner\'s savings. External sources: bank loan, share issue, mortgage, overdraft, venture capital, grants. Internal sources have no interest to pay.'},
+  {topic:'finance',type:'mcq',q:'Which source of finance is MOST suitable for a sole trader needing a small amount of money quickly?',
+    opts:['Issuing shares on the stock exchange','Taking out a large long-term bank mortgage','Using personal savings or a small bank overdraft','Applying for venture capital investment'],
+    ans:2,explain:'Sole traders cannot issue shares. A mortgage is for property. Venture capital is for high-growth businesses. Personal savings or an overdraft are the most practical options for small, quick finance needs.'},
+  {topic:'finance',type:'mcq',q:'A NEGATIVE cash flow means:',
+    opts:['The business is making a profit','More money is going OUT of the business than coming in — a potential problem','The business has too much stock','The business\'s sales are growing'],
+    ans:1,explain:'Negative cash flow: outflows > inflows in a period. The business may struggle to pay its bills. Solutions: arrange overdraft, delay payments to suppliers, chase customers to pay faster, cut costs, increase sales.'},
+  {topic:'finance',type:'mcq',q:'What is shown on an INCOME STATEMENT (profit and loss account)?',
+    opts:['A list of everything the business owns and owes','Sales revenue, cost of sales, gross profit, expenses, and net profit/loss for the year','A forecast of future cash flows','A list of all employees and their salaries'],
+    ans:1,explain:'Income statement: Sales Revenue − Cost of Sales = Gross Profit. Gross Profit − Expenses (overheads) = Net Profit (or loss) for the year. It shows profitability over a trading period (e.g. one year).'},
+  {topic:'finance',type:'mcq',q:'The MARGIN OF SAFETY is:',
+    opts:['The profit made above the break-even point','The difference between ACTUAL sales and the BREAK-EVEN level of sales — how far sales can fall before a loss is made','The maximum profit possible','The difference between fixed and variable costs'],
+    ans:1,explain:'Margin of safety = Actual sales − Break-even sales. It shows how much sales can fall before the business starts making a loss. A large margin of safety means the business is in a secure financial position.'},
+  {topic:'finance',type:'fillin',q:'Break-even point = Fixed Costs ÷ (Selling Price − _____ Cost per unit).',ans:'variable',explain:'The break-even formula: Fixed Costs ÷ (Selling Price − Variable Cost per unit). The bottom part (Selling Price − Variable Cost) is called the "contribution per unit" — each unit sold contributes this amount towards paying fixed costs.'},
+  {topic:'finance',type:'fillin',q:'Sales Revenue minus Cost of Sales equals _____ profit.',ans:'gross',explain:'Gross profit = Sales revenue − Cost of sales (direct costs). It shows how much profit is made from trading before deducting operating expenses (overheads). Net profit = Gross profit − Expenses.'},
+  {topic:'finance',type:'fillin',q:'Costs that remain the same regardless of how much is produced (e.g. rent and insurance) are called _____ costs.',ans:'fixed',explain:'Fixed costs are constant regardless of output level. They include rent, rates, insurance, and management salaries. Even if a business produces nothing, it still must pay its fixed costs.'},
+];
+
+// ═══════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════
+let xp = 0, level = 1, streak = 0, bestStreak = 0;
+let totalAnswered = 0, totalCorrect = 0;
+let topicStats = { understanding:{a:0,c:0}, marketing:{a:0,c:0}, operations:{a:0,c:0}, people:{a:0,c:0}, finance:{a:0,c:0} };
+let dailyGoal = 10, dailyDone = 0;
+let quizPool = [], quizIdx = 0;
+let currentQ = null;
+let fcCards = [], fcIdx = 0, fcKnew = 0;
+let mockQuestions = [], mockIdx = 0, mockScore = 0;
+let mockTimer = null, mockTimeLeft = 0, mockStartTime = null;
+let wsScores = [{c:0,t:0},{c:0,t:0},{c:0,t:0}], wsSheet = 0;
+const WS_IDS = [
+  ['wq-ub1','wq-ub2','wq-ub3','wq-ub4','wq-ub5'],
+  ['wq-mk1','wq-mk2','wq-mk3','wq-mk4'],
+  ['wq-fi1','wq-fi2','wq-fi3','wq-fi4']
+];
+
+// ── PERSIST ──
+function saveState() {
+  try {
+    localStorage.setItem('nat5bio_v2', JSON.stringify({
+      xp, level, streak, bestStreak, totalAnswered, totalCorrect,
+      topicStats, dailyGoal, dailyDone: getDailyDone()
+    }));
+  } catch(e){}
+}
+function loadState() {
+  try {
+    const s = JSON.parse(localStorage.getItem('nat5bio_v2')||'{}');
+    xp = s.xp||0; level = s.level||1; streak = s.streak||0;
+    bestStreak = s.bestStreak||0; totalAnswered = s.totalAnswered||0;
+    totalCorrect = s.totalCorrect||0; topicStats = s.topicStats||topicStats;
+    dailyGoal = s.dailyGoal||10;
+    const today = new Date().toDateString();
+    const savedDay = s.dailyDay||'';
+    dailyDone = savedDay === today ? (s.dailyDone||0) : 0;
+  } catch(e){}
+}
+function getDailyDone(){ return dailyDone; }
+loadState();
+
+// ── NAV ──
+function nav(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  document.querySelector(`[data-page="${page}"]`)?.classList.add('active');
+  if (page==='progress') renderProgress();
+  if (page==='topics') renderTopicPage();
+}
+
+// ── TOPBAR ──
+function updateTopbar() {
+  document.getElementById('xp-val').textContent = xp;
+  document.getElementById('streak-val').textContent = streak;
+  document.getElementById('lv-badge').textContent = 'Lv '+level;
+}
+function showXPToast(pts) {
+  const t = document.getElementById('xp-toast');
+  t.textContent = '+'+pts+' XP ⭐';
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 1800);
+}
+function addXP(pts) {
+  xp += pts;
+  const needed = level * 100;
+  if (xp >= needed) { level++; xp -= needed; showXPToast(pts); }
+  else showXPToast(pts);
+  updateTopbar();
+}
+
+// ── DAILY GOAL ──
+function updateGoal(inc=1) {
+  dailyDone += inc;
+  const pct = Math.min(100, (dailyDone/dailyGoal)*100);
+  document.getElementById('goal-fill').style.width = pct+'%';
+  document.getElementById('goal-txt').textContent = dailyDone+'/'+dailyGoal;
+  if (dailyDone >= dailyGoal) {
+    document.getElementById('goal-txt').textContent = '✅ Done!';
+  }
+}
+
+// ── PRACTICE ──
+function getPool() {
+  const t = document.getElementById('topic-sel').value;
+  const ty = document.getElementById('type-sel').value;
+  let pool = QUESTIONS.filter(q =>
+    (t==='all' || q.topic===t) &&
+    (ty==='all' || q.type===ty)
+  );
+  return shuffle(pool);
+}
+
+function newQuestion() {
+  if (!quizPool.length || quizIdx >= quizPool.length) {
+    quizPool = getPool();
+    quizIdx = 0;
+  }
+  currentQ = quizPool[quizIdx++];
+  renderQ(currentQ);
+  const pct = Math.min(100,(quizIdx/Math.max(quizPool.length,1))*100);
+  document.getElementById('q-progress-fill').style.width = pct+'%';
+}
+
+function renderQ(q) {
+  const topicName = TOPICS.find(t=>t.id===q.topic)?.name||'';
+  const diffTag = quizIdx <= 3 ? 'easy' : quizIdx <= 7 ? '' : 'hard';
+  const diffLabel = diffTag==='easy'?'Easy':diffTag==='hard'?'Hard':'Medium';
+  const letters = ['A','B','C','D'];
+  let inner = '';
+  if (q.type==='mcq') {
+    const shuffledOpts = q.opts.map((o,i)=>({o,correct:i===q.ans}));
+    inner = `<div class="opts">${shuffledOpts.map((op,i)=>`
+      <button class="opt-btn" onclick="checkMCQ(this,${op.correct})">
+        <span class="opt-letter">${letters[i]}</span>${op.o}
+      </button>`).join('')}</div>`;
+  } else {
+    inner = `<input class="fill-input" id="fill-ans" placeholder="Type your answer…" onkeydown="if(event.key==='Enter')checkFill()">
+      <div class="btn-row"><button class="btn btn-green" onclick="checkFill()">Check ✓</button><button class="btn btn-ghost" onclick="newQuestion()">Skip →</button></div>`;
+  }
+  document.getElementById('question-area').innerHTML = `
+    <div class="q-card">
+      <div class="q-card-header">
+        <span class="q-tag">${topicName.toUpperCase()}</span>
+        ${diffTag?`<span class="q-tag ${diffTag}">${diffLabel}</span>`:''}
+        <span class="q-num">Q${quizIdx} / ${quizPool.length}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      ${inner}
+      <div class="explanation" id="expl">
+        <div class="expl-label">📚 Explanation</div>
+        ${q.explain||''}
+      </div>
+    </div>
+    <div class="btn-row" id="next-row" style="display:none">
+      <button class="btn btn-green" onclick="newQuestion()">Next Question →</button>
+    </div>`;
+}
+
+function checkMCQ(el, correct) {
+  document.querySelectorAll('.opt-btn').forEach(b=>b.disabled=true);
+  el.classList.add(correct?'correct':'wrong');
+  if (!correct) {
+    document.querySelectorAll('.opt-btn').forEach(b=>{
+      if(!b.classList.contains('wrong')) b.classList.add('correct');
+    });
+  }
+  recordAnswer(correct, currentQ?.topic);
+  document.getElementById('expl')?.classList.add('show');
+  const nr = document.getElementById('next-row');
+  if(nr) nr.style.display='flex';
+}
+
+function checkFill() {
+  const inp = document.getElementById('fill-ans');
+  if (!inp||!currentQ) return;
+  const val = inp.value.trim().toLowerCase();
+  const ans = currentQ.ans.toLowerCase();
+  const correct = val===ans || ans.includes(val) || val.includes(ans);
+  inp.classList.add(correct?'correct':'wrong');
+  inp.disabled = true;
+  document.querySelector('.btn-green')?.setAttribute('disabled','true');
+  if (!correct) {
+    const note = document.createElement('div');
+    note.style.cssText='color:var(--accent2);font-size:0.8rem;margin:6px 0';
+    note.textContent='✓ Correct answer: '+currentQ.ans;
+    inp.after(note);
+  }
+  recordAnswer(correct, currentQ?.topic);
+  document.getElementById('expl')?.classList.add('show');
+  const nr = document.getElementById('next-row');
+  if(nr) nr.style.display='flex';
+}
+
+function recordAnswer(correct, topic) {
+  totalAnswered++;
+  if(correct){ totalCorrect++; streak++; if(streak>bestStreak)bestStreak=streak; addXP(correct?10:2); }
+  else { streak=0; addXP(2); }
+  if(topic && topicStats[topic]){ topicStats[topic].a++; if(correct)topicStats[topic].c++; }
+  updateGoal();
+  updateTopbar();
+  saveState();
+}
+
+// ── FLASHCARDS ──
+function startFlashcards() {
+  const t = document.getElementById('fc-topic-sel').value;
+  fcCards = shuffle(QUESTIONS.filter(q=>t==='all'||q.topic===t));
+  fcIdx = 0; fcKnew = 0;
+  renderFC();
+}
+function renderFC() {
+  if (!fcCards.length) return;
+  const q = fcCards[fcIdx % fcCards.length];
+  const topicName = TOPICS.find(t=>t.id===q.topic)?.name||'';
+  const ans = q.type==='mcq' ? q.opts[q.ans] : q.ans;
+  document.getElementById('fc-front-text').textContent = q.q;
+  document.getElementById('fc-back-text').innerHTML = `<strong style="color:var(--accent4)">${ans}</strong>${q.explain?`<br><br><span style="font-size:0.8rem;color:var(--muted)">${q.explain}</span>`:''}`;
+  document.getElementById('fc-inner').classList.remove('flipped');
+  const total = fcCards.length;
+  const pct = Math.round((fcIdx/total)*100);
+  document.getElementById('fc-prog-txt').textContent = (fcIdx+1)+' / '+total;
+  document.getElementById('fc-prog-fill').style.width = pct+'%';
+  document.getElementById('fc-knew-txt').textContent = fcKnew;
+}
+function flipCard(){ document.getElementById('fc-inner').classList.toggle('flipped'); }
+function fcNext(knew) {
+  if(!fcCards.length) return;
+  if(knew){ fcKnew++; recordAnswer(true, fcCards[fcIdx%fcCards.length].topic); }
+  fcIdx++;
+  if(fcIdx >= fcCards.length){ fcIdx=0; fcCards=shuffle(fcCards); }
+  renderFC();
+}
+
+// ── MOCK EXAM ──
+let mockPaperType = 'paper1';
+function startMock(paper) {
+  mockPaperType = paper;
+  mockQuestions = shuffle(QUESTIONS).slice(0,25);
+  mockIdx = 0; mockScore = 0;
+  const mins = paper==='paper1'?30:40;
+  mockTimeLeft = mins*60;
+  mockStartTime = Date.now();
+  document.getElementById('mock-home').style.display='none';
+  document.getElementById('mock-exam').style.display='block';
+  document.getElementById('mock-results').style.display='none';
+  document.getElementById('mock-paper-label').textContent = paper==='paper1'?'Paper 1':'Paper 2';
+  document.getElementById('mock-total-live').textContent = 25;
+  mockTimer = setInterval(()=>{
+    mockTimeLeft--;
+    const m=Math.floor(mockTimeLeft/60), s=mockTimeLeft%60;
+    document.getElementById('mock-timer').textContent = String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    if(mockTimeLeft<=0){ clearInterval(mockTimer); mockShowResults(); }
+  },1000);
+  renderMockQ();
+}
+function renderMockQ() {
+  if(mockIdx>=mockQuestions.length){ mockEnd(); return; }
+  const q = mockQuestions[mockIdx];
+  const topicName = TOPICS.find(t=>t.id===q.topic)?.name||'';
+  const letters=['A','B','C','D'];
+  document.getElementById('mock-progress-fill').style.width=((mockIdx/25)*100)+'%';
+  document.getElementById('mock-score-live').textContent = mockScore;
+  let inner='';
+  if(q.type==='mcq'){
+    inner=`<div class="opts">${q.opts.map((o,i)=>`
+      <button class="opt-btn" onclick="mockCheckMCQ(this,${i===q.ans})">
+        <span class="opt-letter">${letters[i]}</span>${o}
+      </button>`).join('')}</div>`;
+  } else {
+    inner=`<input class="fill-input" id="mock-fill" placeholder="Type your answer…" onkeydown="if(event.key==='Enter')mockSubmit()">`;
+  }
+  document.getElementById('mock-q-area').innerHTML=`
+    <div class="q-card">
+      <div class="q-card-header">
+        <span class="q-tag">${topicName.toUpperCase()}</span>
+        <span class="q-num">Q${mockIdx+1}/25</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      ${inner}
+      <div class="explanation" id="mock-expl"><div class="expl-label">📚 Explanation</div>${q.explain||''}</div>
+    </div>`;
+}
+function mockCheckMCQ(el, correct) {
+  document.querySelectorAll('#mock-q-area .opt-btn').forEach(b=>b.disabled=true);
+  el.classList.add(correct?'correct':'wrong');
+  if(correct) mockScore++;
+  document.getElementById('mock-expl')?.classList.add('show');
+  document.getElementById('mock-score-live').textContent=mockScore;
+  setTimeout(()=>{ mockIdx++; renderMockQ(); }, 1200);
+}
+function mockSubmit() {
+  const inp=document.getElementById('mock-fill');
+  const q=mockQuestions[mockIdx];
+  if(!inp||!q) return;
+  const val=inp.value.trim().toLowerCase();
+  const ans=q.ans.toLowerCase();
+  const correct=val===ans||ans.includes(val)||val.includes(ans);
+  inp.classList.add(correct?'correct':'wrong');
+  inp.disabled=true;
+  if(correct) mockScore++;
+  document.getElementById('mock-expl')?.classList.add('show');
+  document.getElementById('mock-score-live').textContent=mockScore;
+  setTimeout(()=>{ mockIdx++; renderMockQ(); },1200);
+}
+function mockSkip(){ mockIdx++; renderMockQ(); }
+function mockEnd(){ clearInterval(mockTimer); mockShowResults(); }
+function mockShowResults() {
+  document.getElementById('mock-exam').style.display='none';
+  document.getElementById('mock-results').style.display='block';
+  const pct=Math.round((mockScore/25)*100);
+  const elapsed=Math.round((Date.now()-mockStartTime)/1000);
+  const mins=Math.floor(elapsed/60),secs=elapsed%60;
+  document.getElementById('mock-pct').textContent=pct+'%';
+  document.getElementById('mr-correct').textContent=mockScore;
+  document.getElementById('mr-wrong').textContent=25-mockScore;
+  document.getElementById('mr-time').textContent=mins+'m '+secs+'s';
+  let grade,colour,msg;
+  if(pct>=85){grade='A';colour='var(--accent)';msg='Outstanding! 🎉';}
+  else if(pct>=70){grade='B';colour='var(--accent4)';msg='Well done! 👏';}
+  else if(pct>=60){grade='C';colour='var(--accent3)';msg='Good effort! 😊';}
+  else if(pct>=45){grade='D';colour='#ff9f43';msg='Keep revising! 📚';}
+  else{grade='No Award';colour='var(--accent2)';msg="Don't give up! 💪";}
+  const g=document.getElementById('mock-grade');
+  g.textContent='Grade '+grade; g.style.background=colour+'22';
+  g.style.color=colour; g.style.border=`1px solid ${colour}44`;
+  document.getElementById('mock-msg').textContent=msg;
+  const circ=2*Math.PI*54, offset=circ-(pct/100)*circ;
+  const ring=document.getElementById('mock-ring');
+  ring.style.strokeDasharray=circ; ring.style.stroke=colour;
+  ring.style.strokeDashoffset=circ;
+  setTimeout(()=>{ ring.style.transition='stroke-dashoffset 1s ease'; ring.style.strokeDashoffset=offset; },100);
+}
+function restartMock(){ startMock(mockPaperType); }
+
+// ── WORKSHEET ENGINE ──
+function wsSwitchSheet(idx) {
+  wsSheet=idx;
+  document.querySelectorAll('.ws-tab').forEach((t,i)=>t.classList.toggle('wta',i===idx));
+  document.querySelectorAll('.ws-sheet2').forEach((s,i)=>{ s.classList.remove('wsa'); if(i===idx) s.classList.add('wsa'); });
+  updateWsStrip();
+}
+function wsMCQ(qid, el, correct) {
+  const q=document.getElementById(qid);
+  if(q.dataset.done==='1') return;
+  q.dataset.done='1';
+  q.querySelectorAll('.ws-opt2').forEach(o=>{o.disabled=true;o.onclick=null;});
+  el.classList.add(correct?'wc':'ww');
+  document.getElementById(qid+'-r')?.classList.add('show');
+  q.classList.add(correct?'ok':'bad');
+  wsRecord(correct);
+}
+function wsEq(qid, ids, answers) {
+  const q=document.getElementById(qid);
+  if(q.dataset.done==='1') return;
+  let allOk=true;
+  ids.forEach((id,i)=>{
+    const inp=document.getElementById(id);
+    if(!inp) return;
+    const v=inp.value.trim().toLowerCase().replace(/[^a-z0-9\- ]/g,'');
+    const a=answers[i].toLowerCase().replace(/[^a-z0-9\- ]/g,'');
+    const ok=v===a||v.includes(a)||a.includes(v)||(v.length>2&&(a.startsWith(v)||v.startsWith(a)));
+    inp.classList.add(ok?'ec':'ew'); inp.disabled=true;
+    if(!ok) allOk=false;
+  });
+  q.dataset.done='1';
+  q.classList.add(allOk?'ok':'bad');
+  document.getElementById(qid+'-r')?.classList.add('show');
+  q.querySelector('.ws-check').disabled=true;
+  wsRecord(allOk);
+}
+function wsPunnett(qid, ids, answers) {
+  const q=document.getElementById(qid);
+  if(q.dataset.done==='1') return;
+  let allOk=true;
+  ids.forEach((id,i)=>{
+    const inp=document.getElementById(id);
+    if(!inp) return;
+    const ok=inp.value.trim().toUpperCase()===answers[i];
+    const cell=inp.closest('.pun-cell');
+    if(cell) cell.classList.add(ok?'pc':'pw');
+    inp.disabled=true;
+    if(!ok){ allOk=false; inp.value=answers[i]; }
+  });
+  q.dataset.done='1';
+  q.classList.add(allOk?'ok':'bad');
+  document.getElementById(qid+'-r')?.classList.add('show');
+  q.querySelector('.ws-check').disabled=true;
+  wsRecord(allOk);
+}
+function wsReveal(qid) {
+  const q=document.getElementById(qid);
+  if(q.dataset.done==='1') return;
+  q.dataset.done='1';
+  const ta=document.getElementById(qid+'-ta');
+  if(ta){ ta.disabled=true; ta.classList.add(ta.value.trim().length>10?'ec':'ew'); }
+  document.getElementById(qid+'-r')?.classList.add('show');
+  q.querySelector('.ws-check').disabled=true;
+  q.classList.add('ok');
+  wsRecord(true);
+}
+function wsRecord(ok) {
+  wsScores[wsSheet].t++;
+  if(ok) wsScores[wsSheet].c++;
+  updateWsStrip();
+}
+function updateWsStrip() {
+  const s=wsScores[wsSheet];
+  const strip=document.getElementById('ws-score-strip');
+  if(s.t===0){ strip.style.display='none'; return; }
+  strip.style.display='flex';
+  const pct=Math.round((s.c/s.t)*100);
+  document.getElementById('ws-score-num').textContent=s.c+'/'+s.t;
+  document.getElementById('ws-score-fill2').style.width=pct+'%';
+  const msg=pct>=80?'🌟 Excellent! On track for an A/B!':pct>=60?'👍 Good — review what you missed':'📚 Keep revising — read the model answers';
+  document.getElementById('ws-score-msg').textContent=msg;
+}
+function wsMarkAll(idx) {
+  const prev=wsSheet; wsSheet=idx;
+  WS_IDS[idx].forEach(qid=>{
+    const q=document.getElementById(qid);
+    if(!q||q.dataset.done==='1') return;
+    document.getElementById(qid+'-r')?.classList.add('show');
+    q.querySelectorAll('.eq-in').forEach(i=>{ if(!i.disabled){i.disabled=true;i.classList.add('ew');} });
+    q.querySelectorAll('.pun-in').forEach(i=>{ if(!i.disabled){i.disabled=true;i.closest('.pun-cell')?.classList.add('pw');} });
+    q.querySelectorAll('.ws-ta').forEach(ta=>{ if(!ta.disabled){ta.disabled=true;ta.classList.add('ew');} });
+    q.dataset.done='1'; q.classList.add('bad');
+    q.querySelectorAll('.ws-check').forEach(b=>b.disabled=true);
+    wsRecord(false);
+  });
+  wsSheet=prev; updateWsStrip();
+}
+function wsReset2(idx) {
+  wsScores[idx]={c:0,t:0};
+  WS_IDS[idx].forEach(qid=>{
+    const q=document.getElementById(qid);
+    if(!q) return;
+    q.dataset.done='0'; q.className='ws-q';
+    document.getElementById(qid+'-r')?.classList.remove('show');
+    q.querySelectorAll('.ws-opt2').forEach(o=>{ o.classList.remove('wc','ww'); o.disabled=false; });
+    q.querySelectorAll('.eq-in').forEach(i=>{ i.value=''; i.disabled=false; i.classList.remove('ec','ew'); });
+    q.querySelectorAll('.pun-in').forEach(i=>{ i.value=''; i.disabled=false; i.closest('.pun-cell')?.classList.remove('pc','pw'); });
+    q.querySelectorAll('.ws-ta').forEach(ta=>{ ta.disabled=false; ta.classList.remove('ec','ew'); });
+    q.querySelectorAll('.ws-check').forEach(b=>b.disabled=false);
+  });
+  if(wsSheet===idx) updateWsStrip();
+}
+
+// ── TOPICS PAGE ──
+function renderTopicPage() {
+  const g=document.getElementById('topic-grid-page');
+  g.innerHTML='';
+  TOPICS.forEach(t=>{
+    const qs=QUESTIONS.filter(q=>q.topic===t.id).length;
+    const st=topicStats[t.id]||{a:0,c:0};
+    const pct=st.a>0?Math.round((st.c/st.a)*100):0;
+    const div=document.createElement('div');
+    div.className='topic-card sel';
+    div.innerHTML=`<div class="topic-icon">${t.icon}</div>
+      <div class="topic-name">${t.name}</div>
+      <div class="topic-count">${qs} questions</div>
+      <div class="topic-sub-text">${t.sub||''}</div>
+      <div class="topic-prog"><div class="topic-prog-fill" style="width:${pct}%"></div></div>`;
+    div.onclick=()=>{
+      document.getElementById('topic-sel').value=t.id;
+      nav('practice');
+      newQuestion();
+    };
+    g.appendChild(div);
+  });
+}
+
+// ── PROGRESS ──
+function renderProgress() {
+  document.getElementById('ps-total').textContent=totalAnswered;
+  document.getElementById('ps-correct').textContent=totalCorrect;
+  document.getElementById('ps-streak').textContent=bestStreak;
+  document.getElementById('ps-xp').textContent=xp;
+  const rows=document.getElementById('topic-prog-rows');
+  rows.innerHTML='';
+  TOPICS.forEach(t=>{
+    const st=topicStats[t.id]||{a:0,c:0};
+    const pct=st.a>0?Math.round((st.c/st.a)*100):0;
+    rows.innerHTML+=`<div class="prog-topic-row">
+      <div class="prog-topic-name">${t.icon} ${t.name}</div>
+      <div class="prog-topic-bar-wrap">
+        <div class="prog-topic-bar"><div class="prog-topic-fill" style="width:${pct}%"></div></div>
+      </div>
+      <div class="prog-topic-pct">${st.a>0?pct+'%':'—'}</div>
+    </div>`;
+  });
+}
+function resetAllProgress() {
+  if(!confirm('Reset all progress? This cannot be undone.')) return;
+  xp=0;level=1;streak=0;bestStreak=0;totalAnswered=0;totalCorrect=0;
+  topicStats={understanding:{a:0,c:0},marketing:{a:0,c:0},operations:{a:0,c:0},people:{a:0,c:0},finance:{a:0,c:0}};
+  dailyDone=0;
+  saveState(); updateTopbar(); updateGoal(0); renderProgress();
+}
+
+// ── SETTINGS ──
+function saveSettings() {
+  const name=document.getElementById('set-name').value.trim();
+  dailyGoal=parseInt(document.getElementById('set-goal').value)||10;
+  if(name) {
+    document.querySelector('.topbar-logo').innerHTML=`🏴󠁧󠁢󠁳󠁣󠁴󠁿 ${name}'s <span>Bio</span>`;
+  }
+  saveState();
+  const btn=document.querySelector('#page-settings .btn-green');
+  btn.textContent='✅ Saved!';
+  setTimeout(()=>btn.textContent='💾 Save',1500);
+}
+
+// ── UTILS ──
+function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+// ── INIT ──
+updateTopbar();
+updateGoal(0);
+newQuestion();
+</script>
+</body>
+</html>
