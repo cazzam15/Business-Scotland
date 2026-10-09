@@ -1,0 +1,17 @@
+{
+  "name": "Higher Business Management Scotland",
+  "short_name": "Higher Business",
+  "description": "Free SQA Higher Business Management revision: quick quizzes, exam-style questions with marking points, mock papers and flashcards.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f6fa",
+  "theme_color": "#0065bd",
+  "lang": "en-GB",
+  "categories": ["education"],
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"}
+  ]
+}
